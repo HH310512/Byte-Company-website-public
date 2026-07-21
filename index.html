@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Byte Company — apps, websites, automatisering en dashboards</title>
+<meta name="description" content="Byte Company bouwt apps, websites, automatiseringen en dashboards. Strak, overzichtelijk en gebouwd om te blijven werken.">
+<style>
+:root{
+  --pine:#0E3B36;
+  --pine-deep:#0A2E29;
+  --mint:#7FE8C3;
+  --mint-tint:#DDF7EC;
+  --mint-dark:#14574C;
+  --ink:#131A18;
+  --mist:#F4F7F6;
+  --slate:#5E6E69;
+  --line:#E1E8E5;
+  --sans:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --mono:ui-monospace,"SF Mono","Cascadia Code",Consolas,"Liberation Mono",Menlo,monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--mist);color:var(--ink);line-height:1.65;font-size:16px}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:2px solid var(--mint-dark);outline-offset:3px;border-radius:4px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+
+/* ---------- nav ---------- */
+.nav{position:sticky;top:0;z-index:50;background:rgba(244,247,246,.88);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav-in{display:flex;align-items:center;gap:28px;height:66px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:650;letter-spacing:-.01em}
+.bmark{width:30px;height:30px;border-radius:8px;background:var(--pine);color:var(--mint);display:grid;place-items:center;font-family:var(--mono);font-size:15px;font-weight:700}
+.nav-links{display:flex;gap:26px;margin-left:auto}
+.nav-links a{position:relative;font-size:14.5px;color:var(--slate);transition:color .15s}
+.nav-links a::after{content:"";position:absolute;left:0;right:0;bottom:-6px;height:2px;border-radius:2px;background:var(--mint);transform:scaleX(0);transform-origin:left;transition:transform .2s ease}
+.nav-links a:hover{color:var(--ink)}
+.nav-links a:hover::after,.nav-links a[aria-current="page"]::after{transform:scaleX(1)}
+.btn{display:inline-flex;align-items:center;gap:8px;border-radius:9px;font-weight:600;font-size:15px;padding:11px 20px;border:1px solid transparent;cursor:pointer;transition:transform .12s,background .15s,border-color .15s}
+.btn:hover{transform:translateY(-1px)}
+.btn:active{transform:scale(.98)}
+.btn-mint{background:var(--mint);color:var(--pine-deep)}
+.btn-mint:hover{background:#8FF0CE}
+.btn-pine{background:var(--pine);color:#EFFBF6}
+.btn-pine:hover{background:#12463F}
+.btn-ghost{background:transparent;color:var(--pine);border-color:#C7D2CE}
+.btn-ghost:hover{border-color:var(--pine)}
+.nav .btn{padding:9px 16px;font-size:14px}
+
+/* ---------- hero ---------- */
+.hero{padding:88px 0 96px}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
+.eyebrow{font-family:var(--mono);font-size:13px;letter-spacing:.04em;color:var(--mint-dark);background:var(--mint-tint);display:inline-block;padding:6px 14px;border-radius:99px;margin-bottom:22px}
+h1{font-size:clamp(34px,4.6vw,54px);line-height:1.08;letter-spacing:-.025em;font-weight:700}
+.hero p.sub{margin:22px 0 30px;font-size:18px;color:var(--slate);max-width:46ch}
+.hero-cta{display:flex;gap:12px;flex-wrap:wrap}
+.hero-note{margin-top:26px;font-size:13.5px;color:var(--slate);display:flex;align-items:center;gap:8px}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--mint);box-shadow:0 0 0 3px var(--mint-tint)}
+
+/* console */
+.console{background:var(--pine-deep);border-radius:16px;border:1px solid rgba(127,232,195,.14);overflow:hidden;box-shadow:0 24px 60px -30px rgba(14,59,54,.45)}
+.console-bar{display:flex;align-items:center;gap:8px;padding:12px 16px;background:var(--pine);border-bottom:1px solid rgba(127,232,195,.12)}
+.console-bar i{width:10px;height:10px;border-radius:50%;background:rgba(232,245,239,.18)}
+.console-bar span{margin-left:6px;font-family:var(--mono);font-size:12px;color:#8FCDBD}
+.console-body{padding:20px 20px 16px;font-family:var(--mono);font-size:13.5px;line-height:2.05;min-height:238px}
+.cl{white-space:pre-wrap;word-break:break-word}
+.cl .p{color:#8FCDBD}
+.cl .ok{color:var(--mint)}
+.cl .tx{color:#DCEEE7}
+.caret{display:inline-block;width:8px;height:15px;background:var(--mint);vertical-align:-2px;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.console-status{display:flex;align-items:center;gap:9px;padding:12px 20px;border-top:1px solid rgba(127,232,195,.12);font-family:var(--mono);font-size:12px;color:#8FCDBD}
+.pulse{width:8px;height:8px;border-radius:50%;background:var(--mint);animation:pulse 2.2s ease-in-out infinite}
+@keyframes pulse{50%{box-shadow:0 0 0 5px rgba(127,232,195,.15)}}
+
+/* ---------- sections ---------- */
+section{padding:88px 0}
+.kicker{font-family:var(--mono);font-size:13px;letter-spacing:.08em;text-transform:lowercase;color:var(--mint-dark);margin-bottom:12px}
+h2{font-size:clamp(26px,3vw,36px);letter-spacing:-.02em;font-weight:700;line-height:1.15}
+.section-sub{margin-top:14px;color:var(--slate);max-width:56ch}
+
+/* diensten */
+.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:44px}
+.card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:28px;transition:border-color .15s,transform .15s}
+.card:hover{border-color:#B9CCC5;transform:translateY(-2px)}
+.tag{font-family:var(--mono);font-size:12.5px;color:var(--mint-dark);background:var(--mint-tint);padding:4px 10px;border-radius:6px;display:inline-block;margin-bottom:16px}
+.card h3{font-size:19px;letter-spacing:-.01em;margin-bottom:8px}
+.card p{font-size:15px;color:var(--slate)}
+
+/* werkwijze */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:44px;counter-reset:step}
+.step{background:#fff;border:1px solid var(--line);border-radius:14px;padding:28px;position:relative}
+.step::before{counter-increment:step;content:counter(step,decimal-leading-zero);font-family:var(--mono);font-size:13px;color:var(--pine-deep);background:var(--mint);padding:5px 11px;border-radius:7px;display:inline-block;margin-bottom:16px;font-weight:700}
+.step h3{font-size:18px;margin-bottom:8px}
+.step p{font-size:15px;color:var(--slate)}
+
+/* principes band */
+.band{background:var(--pine);border-radius:20px;padding:64px 56px;color:#EFFBF6}
+.band .kicker{color:var(--mint)}
+.band h2{color:#EFFBF6}
+.principes{display:grid;grid-template-columns:repeat(3,1fr);gap:36px;margin-top:44px}
+.principe h3{font-size:18px;color:var(--mint);margin-bottom:8px;letter-spacing:-.01em}
+.principe p{font-size:15px;color:#B9DCD0}
+
+/* cta */
+.cta{display:flex;align-items:center;justify-content:space-between;gap:32px;background:#fff;border:1px solid var(--line);border-radius:20px;padding:48px 56px;flex-wrap:wrap}
+.cta h2{font-size:clamp(24px,2.6vw,32px)}
+.cta p{color:var(--slate);margin-top:8px}
+
+/* footer */
+footer{background:var(--pine-deep);color:#8FCDBD;padding:44px 0;margin-top:96px}
+.foot{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.foot .brand{color:#EFFBF6}
+.foot .bmark{background:var(--mint);color:var(--pine-deep)}
+.foot-links{display:flex;gap:22px;font-size:14px}
+.foot-links a:hover{color:#EFFBF6}
+.foot small{font-size:13px;font-family:var(--mono)}
+
+/* reveal & micro-animaties */
+@keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.hero{animation:rise .45s ease both}
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .45s ease,transform .45s ease}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .reveal{opacity:1;transform:none;transition:none}
+  .caret,.pulse{animation:none}
+  .hero{animation:none}
+  .nav-links a::after{transition:none}
+  .btn:hover{transform:none}
+}
+
+/* responsive */
+@media (max-width:900px){
+  .hero-grid{grid-template-columns:1fr;gap:44px}
+  .steps,.principes{grid-template-columns:1fr}
+  .band{padding:44px 28px}
+  .cta{padding:36px 28px}
+}
+@media (max-width:640px){
+  .cards{grid-template-columns:1fr}
+  .nav-links{display:none}
+  .hero{padding:60px 0 64px}
+  section{padding:64px 0}
+}
+
+/* --- hamburger menu --- */
+.menu-btn{display:none;flex-direction:column;justify-content:center;align-items:stretch;gap:5px;width:44px;height:42px;background:transparent;border:1px solid var(--line);border-radius:9px;cursor:pointer;padding:0 11px}
+.menu-btn span{display:block;height:2px;background:var(--ink);border-radius:2px;transition:transform .2s,opacity .2s}
+.menu-btn[aria-expanded="true"] span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.menu-btn[aria-expanded="true"] span:nth-child(2){opacity:0}
+.menu-btn[aria-expanded="true"] span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.mobiel-menu{display:none;border-top:1px solid var(--line);background:rgba(244,247,246,.98);padding:10px 24px 20px}
+.mobiel-menu a{display:block;padding:13px 4px;font-size:16px;color:var(--ink);border-bottom:1px solid var(--line)}
+.mobiel-menu a.btn{border-bottom:none;margin-top:14px;justify-content:center;text-align:center;padding:12px 20px}
+@media (max-width:760px){
+  .nav-links,.nav-cta{display:none}
+  .menu-btn{display:flex}
+  .mobiel-menu:not([hidden]){display:block}
+}
+/* --- footer contactregel --- */
+.foot-sub{display:flex;flex-wrap:wrap;gap:8px 24px;margin-top:22px;padding-top:18px;border-top:1px solid rgba(127,232,195,.14);font-size:13px;font-family:var(--mono);color:#8FCDBD}
+.foot-sub a:hover{color:#EFFBF6}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="index.html" aria-label="Byte Company — naar home">
+      <span class="bmark">B</span> Byte Company
+    </a>
+    <div class="nav-links">
+      <a href="index.html" aria-current="page">Home</a>
+      <a href="diensten.html">Diensten</a>
+      <a href="over-ons.html">Over ons</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <a class="btn btn-mint nav-cta" href="contact.html">Plan een gesprek</a>
+    <button class="menu-btn" type="button" aria-label="Menu openen" aria-expanded="false" aria-controls="mobielmenu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mobiel-menu" id="mobielmenu" hidden>
+    <a href="index.html">Home</a>
+    <a href="diensten.html">Diensten</a>
+    <a href="over-ons.html">Over ons</a>
+    <a href="contact.html">Contact</a>
+    <a class="btn btn-mint" href="contact.html">Plan een gesprek</a>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow">apps · websites · automatisering · dashboards</span>
+      <h1>Software die je bedrijf vooruit helpt</h1>
+      <p class="sub">Byte Company bouwt apps, websites, automatiseringen en dashboards. Strak, overzichtelijk en gebouwd om te blijven werken.</p>
+      <div class="hero-cta">
+        <a class="btn btn-pine" href="contact.html">Start een project</a>
+        <a class="btn btn-ghost" href="diensten.html">Bekijk de diensten</a>
+      </div>
+      <p class="hero-note"><span class="dot" aria-hidden="true"></span> Vrijblijvend kennismaken, reactie binnen 24 uur</p>
+    </div>
+
+    <div class="console" aria-label="Voorbeeld van een draaiende automatisering">
+      <div class="console-bar">
+        <i></i><i></i><i></i>
+        <span>byte · automatisering-monitor</span>
+      </div>
+      <div class="console-body" id="console" aria-live="off"></div>
+      <div class="console-status"><span class="pulse" aria-hidden="true"></span> alle systemen operationeel</div>
+    </div>
+  </div>
+</header>
+
+<section id="diensten">
+  <div class="wrap">
+    <p class="kicker">diensten/</p>
+    <h2>Vier dingen, goed gedaan</h2>
+    <p class="section-sub">Geen alles-voor-iedereen bureau. Byte Company richt zich op vier diensten en doet die grondig.</p>
+    <div class="cards">
+      <div class="card reveal">
+        <span class="tag">apps/</span>
+        <h3>Apps</h3>
+        <p>Apps voor iPhone en Android. Van eerste schets tot in de app-stores.</p>
+      </div>
+      <div class="card reveal">
+        <span class="tag">web/</span>
+        <h3>Websites</h3>
+        <p>Snelle, strakke websites die goed vindbaar zijn en makkelijk te beheren. Geen overbodige franje.</p>
+      </div>
+      <div class="card reveal">
+        <span class="tag">auto/</span>
+        <h3>Automatisering</h3>
+        <p>Laat terugkerend werk vanzelf gebeuren. Facturen, rapportages en ander handwerk.</p>
+      </div>
+      <div class="card reveal">
+        <span class="tag">data/</span>
+        <h3>Dashboards</h3>
+        <p>Al je belangrijke cijfers actueel in één overzicht, in plaats van tien spreadsheets.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="werkwijze">
+  <div class="wrap">
+    <p class="kicker">werkwijze/</p>
+    <h2>Van gesprek naar draaiende software</h2>
+    <div class="steps">
+      <div class="step reveal">
+        <h3>Kennismaken</h3>
+        <p>Een gesprek van 30 minuten over waar je tegenaan loopt en wat er beter kan. Vrijblijvend, zonder verkooppraatje.</p>
+      </div>
+      <div class="step reveal">
+        <h3>Bouwen</h3>
+        <p>In korte stappen, met elke week zichtbaar resultaat. Je kijkt mee, beslist mee en wordt nergens door verrast.</p>
+      </div>
+      <div class="step reveal">
+        <h3>Live en verder</h3>
+        <p>Ook als alles live staat, blijven we het bijhouden en verbeteren. Software is nooit af — en dat is prima.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="principes">
+  <div class="wrap">
+    <div class="band reveal">
+      <p class="kicker">principes/</p>
+      <h2>Waar alles aan moet voldoen</h2>
+      <div class="principes">
+        <div class="principe">
+          <h3>Strak</h3>
+          <p>Ontwerp zonder ruis. Elke knop en elk scherm heeft een reden om er te zijn.</p>
+        </div>
+        <div class="principe">
+          <h3>Overzichtelijk</h3>
+          <p>Je hoeft geen handleiding te lezen. Als iets uitleg nodig heeft, is het ontwerp nog niet klaar.</p>
+        </div>
+        <div class="principe">
+          <h3>Betrouwbaar</h3>
+          <p>Gebouwd om te blijven werken — en we houden het in de gaten, ook lang nadat het af is.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <div class="cta reveal">
+      <div>
+        <h2>Klaar om te starten?</h2>
+        <p>Plan een vrijblijvend kennismakingsgesprek van 30 minuten.</p>
+      </div>
+      <a class="btn btn-pine" href="contact.html">Plan een gesprek</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <a class="brand" href="index.html"><span class="bmark">B</span> Byte Company</a>
+      <div class="foot-links">
+        <a href="index.html">Home</a>
+        <a href="diensten.html">Diensten</a>
+        <a href="over-ons.html">Over ons</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+    <div class="foot-sub">
+      <a href="tel:+31627249877">+31 6 27 24 98 77</a>
+      <span>Noord-Brabant, NL</span>
+      <span>KvK 89199073</span>
+      <span>© 2026 Byte Company</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* reveal on scroll met korte stagger */
+  var els = document.querySelectorAll(".reveal");
+  if (reduce || !("IntersectionObserver" in window)) {
+    els.forEach(function(el){ el.classList.remove("reveal"); });
+  } else {
+    var onthul = function(el, vertraging){
+      el.style.transitionDelay = vertraging + "ms";
+      el.classList.add("in");
+      setTimeout(function(){
+        el.style.transitionDelay = "";
+        el.classList.remove("reveal","in");
+      }, 450 + vertraging + 80);
+    };
+    var io = new IntersectionObserver(function(entries){
+      var zichtbaar = entries.filter(function(e){ return e.isIntersecting; });
+      zichtbaar.forEach(function(e, i){
+        io.unobserve(e.target);
+        onthul(e.target, i * 80);
+      });
+    }, { threshold: .15 });
+    els.forEach(function(el){ io.observe(el); });
+  }
+
+  /* console typing */
+  var box = document.getElementById("console");
+  var script = [
+    { p: "$ ", tx: "start factuurverwerking", cls: "tx" },
+    { ok: "\u2713 24 facturen verwerkt \u00b7 1,2s" },
+    { p: "$ ", tx: "werk klantgegevens bij", cls: "tx" },
+    { ok: "\u2713 8 klanten bijgewerkt" },
+    { p: "$ ", tx: "maak weekrapport", cls: "tx" },
+    { ok: "\u2713 rapport verstuurd naar 3 ontvangers" }
+  ];
+
+  function renderStatic(){
+    box.innerHTML = script.map(function(l){
+      return l.ok
+        ? '<div class="cl"><span class="ok">' + l.ok + '</span></div>'
+        : '<div class="cl"><span class="p">' + l.p + '</span><span class="tx">' + l.tx + '</span></div>';
+    }).join("");
+  }
+
+  if (reduce) { renderStatic(); return; }
+
+  var li = 0;
+  function typeLine(){
+    if (li >= script.length) {
+      setTimeout(function(){ box.innerHTML = ""; li = 0; typeLine(); }, 6000);
+      return;
+    }
+    var l = script[li];
+    var div = document.createElement("div");
+    div.className = "cl";
+    box.appendChild(div);
+    if (l.ok) {
+      div.innerHTML = '<span class="ok">' + l.ok + '</span>';
+      li++;
+      setTimeout(typeLine, 700);
+      return;
+    }
+    div.innerHTML = '<span class="p">' + l.p + '</span><span class="tx"></span><span class="caret"></span>';
+    var target = div.querySelector(".tx");
+    var i = 0;
+    (function tick(){
+      if (i <= l.tx.length) {
+        target.textContent = l.tx.slice(0, i++);
+        setTimeout(tick, 34);
+      } else {
+        div.querySelector(".caret").remove();
+        li++;
+        setTimeout(typeLine, 420);
+      }
+    })();
+  }
+  typeLine();
+})();
+</script>
+
+<script>
+(function(){
+  var mb = document.querySelector(".menu-btn");
+  var mm = document.getElementById("mobielmenu");
+  if (!mb || !mm) return;
+  mb.addEventListener("click", function(){
+    var open = mb.getAttribute("aria-expanded") === "true";
+    mb.setAttribute("aria-expanded", String(!open));
+    mb.setAttribute("aria-label", open ? "Menu openen" : "Menu sluiten");
+    mm.hidden = open;
+  });
+})();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — Byte Company</title>
+<meta name="description" content="Neem contact op met Byte Company. Vertel kort waar je aan denkt; je krijgt binnen een werkdag reactie.">
+<style>
+:root{
+  --pine:#0E3B36;
+  --pine-deep:#0A2E29;
+  --mint:#7FE8C3;
+  --mint-tint:#DDF7EC;
+  --mint-dark:#14574C;
+  --ink:#131A18;
+  --mist:#F4F7F6;
+  --slate:#5E6E69;
+  --line:#E1E8E5;
+  --sans:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --mono:ui-monospace,"SF Mono","Cascadia Code",Consolas,"Liberation Mono",Menlo,monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:var(--sans);background:var(--mist);color:var(--ink);line-height:1.65;font-size:16px}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:2px solid var(--mint-dark);outline-offset:3px;border-radius:4px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+
+.nav{position:sticky;top:0;z-index:50;background:rgba(244,247,246,.88);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav-in{display:flex;align-items:center;gap:28px;height:66px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:650;letter-spacing:-.01em}
+.bmark{width:30px;height:30px;border-radius:8px;background:var(--pine);color:var(--mint);display:grid;place-items:center;font-family:var(--mono);font-size:15px;font-weight:700}
+.nav-links{display:flex;gap:26px;margin-left:auto}
+.nav-links a{position:relative;font-size:14.5px;color:var(--slate);transition:color .15s}
+.nav-links a::after{content:"";position:absolute;left:0;right:0;bottom:-6px;height:2px;border-radius:2px;background:var(--mint);transform:scaleX(0);transform-origin:left;transition:transform .2s ease}
+.nav-links a:hover{color:var(--ink)}
+.nav-links a:hover::after,.nav-links a[aria-current="page"]::after{transform:scaleX(1)}
+.nav-links a[aria-current="page"]{color:var(--ink);font-weight:600}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:9px;font-weight:600;font-size:15px;padding:12px 22px;border:1px solid transparent;cursor:pointer;transition:transform .12s,background .15s}
+.btn:hover{transform:translateY(-1px)}
+.btn:active{transform:scale(.98)}
+.btn-mint{background:var(--mint);color:var(--pine-deep)}
+.btn-mint:hover{background:#8FF0CE}
+.btn-pine{background:var(--pine);color:#EFFBF6}
+.btn-pine:hover{background:#12463F}
+.nav .btn{padding:9px 16px;font-size:14px}
+
+.pagehead{padding:76px 0 48px}
+.kicker{font-family:var(--mono);font-size:13px;letter-spacing:.08em;color:var(--mint-dark);margin-bottom:12px}
+h1{font-size:clamp(32px,4vw,46px);line-height:1.1;letter-spacing:-.025em;font-weight:700}
+.pagehead p{margin-top:16px;font-size:17.5px;color:var(--slate);max-width:52ch}
+
+.contact-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:40px;align-items:start;padding-bottom:96px}
+
+.info-card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:32px}
+.info-item{display:flex;align-items:flex-start;gap:14px;padding:14px 0;border-bottom:1px solid var(--line)}
+.info-item:last-of-type{border-bottom:none}
+.info-ico{width:38px;height:38px;border-radius:10px;background:var(--mint-tint);color:var(--mint-dark);display:grid;place-items:center;font-family:var(--mono);font-weight:700;font-size:13px;flex-shrink:0}
+.info-item h3{font-size:13px;font-family:var(--mono);color:var(--slate);font-weight:600;letter-spacing:.04em}
+.info-item a,.info-item span{font-size:15.5px;font-weight:600}
+.info-item a:hover{color:var(--mint-dark)}
+.badge{display:inline-flex;align-items:center;gap:8px;margin-top:20px;background:var(--mint-tint);color:var(--mint-dark);font-size:13.5px;font-weight:600;padding:8px 14px;border-radius:99px}
+.badge .dot{width:8px;height:8px;border-radius:50%;background:var(--mint);animation:pulse 2.2s ease-in-out infinite}
+@keyframes pulse{50%{box-shadow:0 0 0 5px rgba(127,232,195,.25)}}
+.info-note{margin-top:18px;font-size:14px;color:var(--slate)}
+
+.form-card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:36px}
+.form-card h2{font-size:20px;letter-spacing:-.01em;margin-bottom:6px}
+.form-card .sub{font-size:14.5px;color:var(--slate);margin-bottom:26px}
+.veld{margin-bottom:20px}
+.veld label{display:block;font-size:13.5px;font-weight:600;margin-bottom:7px}
+.veld input,.veld select,.veld textarea{width:100%;font:inherit;font-size:15px;color:var(--ink);background:var(--mist);border:1px solid #D3DDD9;border-radius:9px;padding:12px 14px;transition:border-color .15s,box-shadow .15s}
+.veld textarea{min-height:130px;resize:vertical}
+.veld input:focus,.veld select:focus,.veld textarea:focus{outline:none;border-color:var(--mint-dark);box-shadow:0 0 0 3px var(--mint-tint)}
+.veld ::placeholder{color:#9AA5A1}
+.rij{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.form-card .btn{width:100%}
+.form-hint{margin-top:14px;font-size:13px;color:var(--slate);text-align:center}
+.form-status{margin-top:14px;font-size:14px;font-weight:600;text-align:center;padding:11px 14px;border-radius:9px}
+.form-status.ok{background:var(--mint-tint);color:var(--mint-dark)}
+.form-status.err{background:#FBEAEA;color:#8A3B3B}
+.form-hint a{color:var(--mint-dark);font-weight:600}
+.form-hint a:hover{text-decoration:underline}
+
+footer{background:var(--pine-deep);color:#8FCDBD;padding:44px 0}
+.foot{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.foot .brand{color:#EFFBF6}
+.foot .bmark{background:var(--mint);color:var(--pine-deep)}
+.foot-links{display:flex;gap:22px;font-size:14px}
+.foot-links a:hover{color:#EFFBF6}
+.foot small{font-size:13px;font-family:var(--mono)}
+
+/* reveal & micro-animaties */
+@keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.pagehead{animation:rise .45s ease both}
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .45s ease,transform .45s ease}
+.reveal.in{opacity:1;transform:none}
+
+@media (prefers-reduced-motion:reduce){
+  .badge .dot{animation:none}
+  .pagehead{animation:none}
+  .reveal{opacity:1;transform:none;transition:none}
+  .nav-links a::after{transition:none}
+  .btn:hover{transform:none}
+}
+@media (max-width:860px){
+  .contact-grid{grid-template-columns:1fr}
+  .form-card,.info-card{padding:26px}
+}
+@media (max-width:640px){
+  .nav-links{display:none}
+  .pagehead{padding:56px 0 36px}
+  .rij{grid-template-columns:1fr}
+}
+
+/* --- hamburger menu --- */
+.menu-btn{display:none;flex-direction:column;justify-content:center;align-items:stretch;gap:5px;width:44px;height:42px;background:transparent;border:1px solid var(--line);border-radius:9px;cursor:pointer;padding:0 11px}
+.menu-btn span{display:block;height:2px;background:var(--ink);border-radius:2px;transition:transform .2s,opacity .2s}
+.menu-btn[aria-expanded="true"] span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.menu-btn[aria-expanded="true"] span:nth-child(2){opacity:0}
+.menu-btn[aria-expanded="true"] span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.mobiel-menu{display:none;border-top:1px solid var(--line);background:rgba(244,247,246,.98);padding:10px 24px 20px}
+.mobiel-menu a{display:block;padding:13px 4px;font-size:16px;color:var(--ink);border-bottom:1px solid var(--line)}
+.mobiel-menu a.btn{border-bottom:none;margin-top:14px;justify-content:center;text-align:center;padding:12px 20px}
+@media (max-width:760px){
+  .nav-links,.nav-cta{display:none}
+  .menu-btn{display:flex}
+  .mobiel-menu:not([hidden]){display:block}
+}
+/* --- footer contactregel --- */
+.foot-sub{display:flex;flex-wrap:wrap;gap:8px 24px;margin-top:22px;padding-top:18px;border-top:1px solid rgba(127,232,195,.14);font-size:13px;font-family:var(--mono);color:#8FCDBD}
+.foot-sub a:hover{color:#EFFBF6}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="index.html" aria-label="Byte Company — naar home">
+      <span class="bmark">B</span> Byte Company
+    </a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="diensten.html">Diensten</a>
+      <a href="over-ons.html">Over ons</a>
+      <a href="contact.html" aria-current="page">Contact</a>
+    </div>
+    <a class="btn btn-mint nav-cta" href="#formulier">Plan een gesprek</a>
+    <button class="menu-btn" type="button" aria-label="Menu openen" aria-expanded="false" aria-controls="mobielmenu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mobiel-menu" id="mobielmenu" hidden>
+    <a href="index.html">Home</a>
+    <a href="diensten.html">Diensten</a>
+    <a href="over-ons.html">Over ons</a>
+    <a href="contact.html">Contact</a>
+    <a class="btn btn-mint" href="#formulier">Plan een gesprek</a>
+  </div>
+</nav>
+
+<header class="pagehead">
+  <div class="wrap">
+    <p class="kicker">contact/</p>
+    <h1>Neem contact op</h1>
+    <p>Vertel kort waar je aan denkt — een app-idee, een proces dat handmatig te veel tijd kost, of gewoon een vraag. Je krijgt binnen een werkdag reactie.</p>
+  </div>
+</header>
+
+<main class="wrap contact-grid">
+
+  <aside class="info-card reveal">
+    <div class="info-item">
+      <span class="info-ico" aria-hidden="true">T</span>
+      <div>
+        <h3>telefoon</h3>
+        <a href="tel:+31627249877">+31 6 27 24 98 77</a>
+      </div>
+    </div>
+    <div class="info-item">
+      <span class="info-ico" aria-hidden="true">NL</span>
+      <div>
+        <h3>locatie</h3>
+        <span>Noord-Brabant, NL</span>
+      </div>
+    </div>
+    <div class="info-item">
+      <span class="info-ico" aria-hidden="true">#</span>
+      <div>
+        <h3>kvk</h3>
+        <span>89199073</span>
+      </div>
+    </div>
+    <span class="badge"><span class="dot" aria-hidden="true"></span> Reactie binnen 24 uur</span>
+    <p class="info-note">Liever direct schakelen? Bel of app gerust — ook 's avonds prima.</p>
+  </aside>
+
+  <section class="form-card reveal" id="formulier">
+    <h2>Stuur een bericht</h2>
+    <p class="sub">Vertel kort waar je aan denkt — we reageren binnen 24 uur.</p>
+    <form id="contactform" novalidate>
+      <div class="rij">
+        <div class="veld">
+          <label for="naam">Naam</label>
+          <input id="naam" name="naam" type="text" placeholder="Jan Jansen" required autocomplete="name">
+        </div>
+        <div class="veld">
+          <label for="email">E-mailadres</label>
+          <input id="email" name="email" type="email" placeholder="jan@bedrijf.nl" required autocomplete="email">
+        </div>
+      </div>
+      <div class="veld">
+        <label for="onderwerp">Waar gaat het om?</label>
+        <select id="onderwerp" name="onderwerp">
+          <option>App</option>
+          <option>Website</option>
+          <option>Automatisering</option>
+          <option>Dashboard</option>
+          <option>Iets anders</option>
+        </select>
+      </div>
+      <div class="veld">
+        <label for="bericht">Bericht</label>
+        <textarea id="bericht" name="bericht" placeholder="Vertel kort wat je wilt bouwen of verbeteren..." required></textarea>
+      </div>
+      <button class="btn btn-pine" type="submit">Verstuur bericht</button>
+      <p class="form-status" id="formstatus" role="status" hidden></p>
+      <p class="form-hint">Liever direct contact? Bel of app naar <a href="tel:+31627249877">+31 6 27 24 98 77</a></p>
+    </form>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <a class="brand" href="index.html"><span class="bmark">B</span> Byte Company</a>
+      <div class="foot-links">
+        <a href="index.html">Home</a>
+        <a href="diensten.html">Diensten</a>
+        <a href="over-ons.html">Over ons</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+    <div class="foot-sub">
+      <a href="tel:+31627249877">+31 6 27 24 98 77</a>
+      <span>Noord-Brabant, NL</span>
+      <span>KvK 89199073</span>
+      <span>© 2026 Byte Company</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* Koppel hier je formulierdienst (bijv. Formspree): maak een gratis formulier aan
+   en vul hieronder de endpoint-URL in, bijv. "https://formspree.io/f/jouwcode".
+   Zolang dit leeg is, verwijst het formulier naar het telefoonnummer. */
+var FORM_ENDPOINT = "https://formspree.io/f/mjgnoazk";
+
+document.getElementById("contactform").addEventListener("submit", function(e){
+  e.preventDefault();
+  var f = e.target;
+  if (!f.reportValidity()) return;
+  var status = document.getElementById("formstatus");
+  function toon(msg, ok){
+    status.textContent = msg;
+    status.className = "form-status " + (ok ? "ok" : "err");
+    status.hidden = false;
+  }
+  if (!FORM_ENDPOINT) {
+    toon("Het formulier is nog niet gekoppeld aan een verzenddienst. Bel of app ons op +31 6 27 24 98 77.", false);
+    return;
+  }
+  fetch(FORM_ENDPOINT, {
+    method: "POST",
+    headers: { "Content-Type": "application/json", "Accept": "application/json" },
+    body: JSON.stringify({
+      naam: f.naam.value.trim(),
+      email: f.email.value.trim(),
+      onderwerp: f.onderwerp.value,
+      bericht: f.bericht.value.trim()
+    })
+  }).then(function(r){
+    if (!r.ok) throw new Error();
+    toon("Bedankt voor je bericht! We reageren binnen 24 uur.", true);
+    f.reset();
+  }).catch(function(){
+    toon("Versturen is niet gelukt. Bel of app ons op +31 6 27 24 98 77.", false);
+  });
+});
+</script>
+
+<script>
+(function(){
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var els = document.querySelectorAll(".reveal");
+  if (reduce || !("IntersectionObserver" in window)) {
+    els.forEach(function(el){ el.classList.remove("reveal"); });
+    return;
+  }
+  function onthul(el, vertraging){
+    el.style.transitionDelay = vertraging + "ms";
+    el.classList.add("in");
+    setTimeout(function(){
+      el.style.transitionDelay = "";
+      el.classList.remove("reveal","in");
+    }, 450 + vertraging + 80);
+  }
+  var io = new IntersectionObserver(function(entries){
+    var zichtbaar = entries.filter(function(e){ return e.isIntersecting; });
+    zichtbaar.forEach(function(e, i){
+      io.unobserve(e.target);
+      onthul(e.target, i * 80);
+    });
+  }, { threshold: .12 });
+  els.forEach(function(el){ io.observe(el); });
+})();
+</script>
+
+<script>
+(function(){
+  var mb = document.querySelector(".menu-btn");
+  var mm = document.getElementById("mobielmenu");
+  if (!mb || !mm) return;
+  mb.addEventListener("click", function(){
+    var open = mb.getAttribute("aria-expanded") === "true";
+    mb.setAttribute("aria-expanded", String(!open));
+    mb.setAttribute("aria-label", open ? "Menu openen" : "Menu sluiten");
+    mm.hidden = open;
+  });
+})();
+</script>
+
+</body>
+</html>

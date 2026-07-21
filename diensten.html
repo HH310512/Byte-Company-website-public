@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Diensten — Byte Company</title>
+<meta name="description" content="Apps, websites, automatisering en dashboards. Bekijk wat Byte Company voor je bouwt, wat je krijgt en wat het kost.">
+<style>
+:root{
+  --pine:#0E3B36;
+  --pine-deep:#0A2E29;
+  --mint:#7FE8C3;
+  --mint-tint:#DDF7EC;
+  --mint-dark:#14574C;
+  --ink:#131A18;
+  --mist:#F4F7F6;
+  --slate:#5E6E69;
+  --line:#E1E8E5;
+  --sans:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --mono:ui-monospace,"SF Mono","Cascadia Code",Consolas,"Liberation Mono",Menlo,monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--mist);color:var(--ink);line-height:1.65;font-size:16px}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:2px solid var(--mint-dark);outline-offset:3px;border-radius:4px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+
+.nav{position:sticky;top:0;z-index:50;background:rgba(244,247,246,.88);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav-in{display:flex;align-items:center;gap:28px;height:66px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:650;letter-spacing:-.01em}
+.bmark{width:30px;height:30px;border-radius:8px;background:var(--pine);color:var(--mint);display:grid;place-items:center;font-family:var(--mono);font-size:15px;font-weight:700}
+.nav-links{display:flex;gap:26px;margin-left:auto}
+.nav-links a{position:relative;font-size:14.5px;color:var(--slate);transition:color .15s}
+.nav-links a::after{content:"";position:absolute;left:0;right:0;bottom:-6px;height:2px;border-radius:2px;background:var(--mint);transform:scaleX(0);transform-origin:left;transition:transform .2s ease}
+.nav-links a:hover{color:var(--ink)}
+.nav-links a:hover::after,.nav-links a[aria-current="page"]::after{transform:scaleX(1)}
+.nav-links a[aria-current="page"]{color:var(--ink);font-weight:600}
+.btn{display:inline-flex;align-items:center;gap:8px;border-radius:9px;font-weight:600;font-size:15px;padding:11px 20px;border:1px solid transparent;cursor:pointer;transition:transform .12s,background .15s,border-color .15s}
+.btn:hover{transform:translateY(-1px)}
+.btn:active{transform:scale(.98)}
+.btn-mint{background:var(--mint);color:var(--pine-deep)}
+.btn-mint:hover{background:#8FF0CE}
+.btn-pine{background:var(--pine);color:#EFFBF6}
+.btn-pine:hover{background:#12463F}
+.nav .btn{padding:9px 16px;font-size:14px}
+
+.pagehead{padding:76px 0 56px}
+.kicker{font-family:var(--mono);font-size:13px;letter-spacing:.08em;color:var(--mint-dark);margin-bottom:12px}
+h1{font-size:clamp(32px,4vw,46px);line-height:1.1;letter-spacing:-.025em;font-weight:700}
+.pagehead p{margin-top:16px;font-size:17.5px;color:var(--slate);max-width:54ch}
+
+.dienst{background:#fff;border:1px solid var(--line);border-radius:16px;padding:40px;display:grid;grid-template-columns:1.1fr .9fr;gap:44px;margin-bottom:16px}
+.tag{font-family:var(--mono);font-size:12.5px;color:var(--mint-dark);background:var(--mint-tint);padding:4px 10px;border-radius:6px;display:inline-block;margin-bottom:16px}
+.dienst h2{font-size:24px;letter-spacing:-.015em;margin-bottom:10px}
+.dienst .desc{font-size:15.5px;color:var(--slate)}
+.dienst .link{display:inline-block;margin-top:22px;font-weight:600;font-size:14.5px;color:var(--mint-dark)}
+.dienst .link:hover{text-decoration:underline}
+
+.krijgt{background:var(--mist);border:1px solid var(--line);border-radius:12px;padding:24px 26px}
+.krijgt h3{font-family:var(--mono);font-size:12.5px;letter-spacing:.06em;color:var(--slate);margin-bottom:14px;font-weight:600}
+.krijgt ul{list-style:none}
+.krijgt li{position:relative;padding:7px 0 7px 30px;font-size:15px}
+.krijgt li::before{content:"";position:absolute;left:0;top:10px;width:18px;height:18px;border-radius:50%;background:var(--mint-tint)}
+.krijgt li::after{content:"";position:absolute;left:5px;top:14px;width:8px;height:5px;border-left:2px solid var(--mint-dark);border-bottom:2px solid var(--mint-dark);transform:rotate(-45deg)}
+
+.faq{padding:88px 0 8px}
+h2.sectie{font-size:clamp(26px,3vw,34px);letter-spacing:-.02em;font-weight:700}
+.faq details{background:#fff;border:1px solid var(--line);border-radius:12px;margin-top:12px;overflow:hidden}
+.faq summary{list-style:none;cursor:pointer;padding:20px 24px;font-weight:600;font-size:16px;display:flex;justify-content:space-between;align-items:center;gap:16px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-family:var(--mono);font-size:20px;color:var(--mint-dark);transition:transform .2s;line-height:1}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq .antwoord{padding:0 24px 20px;color:var(--slate);font-size:15px;max-width:64ch}
+
+.cta-sec{padding:88px 0}
+.cta{display:flex;align-items:center;justify-content:space-between;gap:32px;background:var(--pine);border-radius:20px;padding:48px 56px;flex-wrap:wrap;color:#EFFBF6}
+.cta h2{font-size:clamp(24px,2.6vw,32px);letter-spacing:-.02em}
+.cta p{color:#B9DCD0;margin-top:8px}
+
+footer{background:var(--pine-deep);color:#8FCDBD;padding:44px 0}
+.foot{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.foot .brand{color:#EFFBF6}
+.foot .bmark{background:var(--mint);color:var(--pine-deep)}
+.foot-links{display:flex;gap:22px;font-size:14px}
+.foot-links a:hover{color:#EFFBF6}
+.foot small{font-size:13px;font-family:var(--mono)}
+
+/* reveal & micro-animaties */
+@keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.pagehead{animation:rise .45s ease both}
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .45s ease,transform .45s ease}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .reveal{opacity:1;transform:none;transition:none}
+  .pagehead{animation:none}
+  .nav-links a::after{transition:none}
+  .btn:hover{transform:none}
+}
+@media (max-width:860px){
+  .dienst{grid-template-columns:1fr;padding:28px;gap:26px}
+  .cta{padding:36px 28px}
+}
+@media (max-width:640px){
+  .nav-links{display:none}
+  .pagehead{padding:56px 0 40px}
+}
+
+/* --- hamburger menu --- */
+.menu-btn{display:none;flex-direction:column;justify-content:center;align-items:stretch;gap:5px;width:44px;height:42px;background:transparent;border:1px solid var(--line);border-radius:9px;cursor:pointer;padding:0 11px}
+.menu-btn span{display:block;height:2px;background:var(--ink);border-radius:2px;transition:transform .2s,opacity .2s}
+.menu-btn[aria-expanded="true"] span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.menu-btn[aria-expanded="true"] span:nth-child(2){opacity:0}
+.menu-btn[aria-expanded="true"] span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.mobiel-menu{display:none;border-top:1px solid var(--line);background:rgba(244,247,246,.98);padding:10px 24px 20px}
+.mobiel-menu a{display:block;padding:13px 4px;font-size:16px;color:var(--ink);border-bottom:1px solid var(--line)}
+.mobiel-menu a.btn{border-bottom:none;margin-top:14px;justify-content:center;text-align:center;padding:12px 20px}
+@media (max-width:760px){
+  .nav-links,.nav-cta{display:none}
+  .menu-btn{display:flex}
+  .mobiel-menu:not([hidden]){display:block}
+}
+/* --- footer contactregel --- */
+.foot-sub{display:flex;flex-wrap:wrap;gap:8px 24px;margin-top:22px;padding-top:18px;border-top:1px solid rgba(127,232,195,.14);font-size:13px;font-family:var(--mono);color:#8FCDBD}
+.foot-sub a:hover{color:#EFFBF6}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="index.html" aria-label="Byte Company — naar home">
+      <span class="bmark">B</span> Byte Company
+    </a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="diensten.html" aria-current="page">Diensten</a>
+      <a href="over-ons.html">Over ons</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <a class="btn btn-mint nav-cta" href="contact.html">Plan een gesprek</a>
+    <button class="menu-btn" type="button" aria-label="Menu openen" aria-expanded="false" aria-controls="mobielmenu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mobiel-menu" id="mobielmenu" hidden>
+    <a href="index.html">Home</a>
+    <a href="diensten.html">Diensten</a>
+    <a href="over-ons.html">Over ons</a>
+    <a href="contact.html">Contact</a>
+    <a class="btn btn-mint" href="contact.html">Plan een gesprek</a>
+  </div>
+</nav>
+
+<header class="pagehead">
+  <div class="wrap">
+    <p class="kicker">diensten/</p>
+    <h1>Vier dingen, goed gedaan</h1>
+    <p>Geen alles-voor-iedereen bureau. Byte Company richt zich op vier diensten en doet die grondig — met een vaste prijsafspraak vooraf, zodat je nooit voor verrassingen staat.</p>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="dienst reveal" id="apps">
+    <div>
+      <span class="tag">apps/</span>
+      <h2>Apps</h2>
+      <p class="desc">Apps voor iPhone en Android. Van eerste schets tot in de app-stores — en daarna zie je precies hoe de app wordt gebruikt.</p>
+      <a class="link" href="contact.html">Bespreek je app-idee &rarr;</a>
+    </div>
+    <div class="krijgt">
+      <h3>wat je krijgt</h3>
+      <ul>
+        <li>Eerst een ontwerp, zodat je weet wat je krijgt</li>
+        <li>Werkt op iPhone én Android</li>
+        <li>We zetten de app voor je in de app-stores</li>
+        <li>Je ziet hoe de app wordt gebruikt</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="dienst reveal" id="websites">
+    <div>
+      <span class="tag">web/</span>
+      <h2>Websites</h2>
+      <p class="desc">Snelle, strakke websites die goed vindbaar zijn en die je daarna zelf kunt bijhouden. Geen overbodige toeters en bellen — alleen wat de site nodig heeft om zijn werk te doen.</p>
+      <a class="link" href="contact.html">Vraag een voorstel aan &rarr;</a>
+    </div>
+    <div class="krijgt">
+      <h3>wat je krijgt</h3>
+      <ul>
+        <li>Ontwerp op maat in je eigen huisstijl</li>
+        <li>Je past zelf makkelijk teksten en foto's aan</li>
+        <li>Goed vindbaar in Google en razendsnel</li>
+        <li>Contactformulier en bezoekersstatistieken</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="dienst reveal" id="automatisering">
+    <div>
+      <span class="tag">auto/</span>
+      <h2>Automatisering</h2>
+      <p class="desc">Laat terugkerend werk vanzelf gebeuren: facturen verwerken, gegevens overnemen, rapportages versturen. Je krijgt een seintje als er iets misgaat — en anders hoor je er niks van.</p>
+      <a class="link" href="contact.html">Laat je proces doorlichten &rarr;</a>
+    </div>
+    <div class="krijgt">
+      <h3>wat je krijgt</h3>
+      <ul>
+        <li>We kijken eerst mee hoe je nu werkt</li>
+        <li>Je programma's worden aan elkaar gekoppeld</li>
+        <li>Automatisch een melding als er iets misgaat</li>
+        <li>Altijd terug te zien wat er is gebeurd</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="dienst reveal" id="dashboards">
+    <div>
+      <span class="tag">data/</span>
+      <h2>Dashboards</h2>
+      <p class="desc">Al je belangrijke cijfers actueel in één overzicht, in plaats van tien losse spreadsheets. En iedereen ziet alleen wat voor hem of haar bedoeld is.</p>
+      <a class="link" href="contact.html">Bespreek je wensen &rarr;</a>
+    </div>
+    <div class="krijgt">
+      <h3>wat je krijgt</h3>
+      <ul>
+        <li>Gekoppeld aan de systemen waar je cijfers in staan</li>
+        <li>Altijd actueel, ook op je telefoon</li>
+        <li>Aparte weergave per collega of afdeling</li>
+        <li>Makkelijk te delen als rapport of e-mail</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="faq">
+    <p class="kicker">faq/</p>
+    <h2 class="sectie">Veelgestelde vragen</h2>
+    <details>
+      <summary>Wat kost een project precies?</summary>
+      <p class="antwoord">Dat hangt af van wat er gebouwd wordt. Na het kennismakingsgesprek krijg je een offerte met een vaste prijs, zodat je vooraf exact weet waar je aan toe bent. Meerwerk gebeurt alleen in overleg.</p>
+    </details>
+    <details>
+      <summary>Hoe lang duurt een project?</summary>
+      <p class="antwoord">Dat verschilt per project, dus daar doen we vooraf geen algemene uitspraken over. Wel kun je rekenen op snel schakelen: korte lijnen, geen wachttijden en elke week zichtbaar resultaat. In het kennismakingsgesprek krijg je een eerlijke inschatting voor jouw situatie.</p>
+    </details>
+    <details>
+      <summary>Doen jullie ook onderhoud na oplevering?</summary>
+      <p class="antwoord">Ja. We kunnen afspreken dat de software ook na oplevering wordt bijgehouden en in de gaten gehouden. Zo blijft alles veilig werken, ook op de lange termijn.</p>
+    </details>
+    <details>
+      <summary>Werkt dit ook met de programma's die wij al gebruiken?</summary>
+      <p class="antwoord">In vrijwel alle gevallen wel. Denk aan je boekhouding, klantenbestand, e-mail en agenda, of je webshop. Twijfel je over een specifiek programma? Noem het in het kennismakingsgesprek, dan zoeken we het direct uit.</p>
+    </details>
+  </section>
+
+  <section class="cta-sec">
+    <div class="cta reveal">
+      <div>
+        <h2>Weten wat er in jouw situatie kan?</h2>
+        <p>Plan een vrijblijvend kennismakingsgesprek van 30 minuten.</p>
+      </div>
+      <a class="btn btn-mint" href="contact.html">Plan een gesprek</a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <a class="brand" href="index.html"><span class="bmark">B</span> Byte Company</a>
+      <div class="foot-links">
+        <a href="index.html">Home</a>
+        <a href="diensten.html">Diensten</a>
+        <a href="over-ons.html">Over ons</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+    <div class="foot-sub">
+      <a href="tel:+31627249877">+31 6 27 24 98 77</a>
+      <span>Noord-Brabant, NL</span>
+      <span>KvK 89199073</span>
+      <span>© 2026 Byte Company</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var els = document.querySelectorAll(".reveal");
+  if (reduce || !("IntersectionObserver" in window)) {
+    els.forEach(function(el){ el.classList.remove("reveal"); });
+    return;
+  }
+  function onthul(el, vertraging){
+    el.style.transitionDelay = vertraging + "ms";
+    el.classList.add("in");
+    setTimeout(function(){
+      el.style.transitionDelay = "";
+      el.classList.remove("reveal","in");
+    }, 450 + vertraging + 80);
+  }
+  var io = new IntersectionObserver(function(entries){
+    var zichtbaar = entries.filter(function(e){ return e.isIntersecting; });
+    zichtbaar.forEach(function(e, i){
+      io.unobserve(e.target);
+      onthul(e.target, i * 80);
+    });
+  }, { threshold: .12 });
+  els.forEach(function(el){ io.observe(el); });
+})();
+</script>
+
+<script>
+(function(){
+  var mb = document.querySelector(".menu-btn");
+  var mm = document.getElementById("mobielmenu");
+  if (!mb || !mm) return;
+  mb.addEventListener("click", function(){
+    var open = mb.getAttribute("aria-expanded") === "true";
+    mb.setAttribute("aria-expanded", String(!open));
+    mb.setAttribute("aria-label", open ? "Menu openen" : "Menu sluiten");
+    mm.hidden = open;
+  });
+})();
+</script>
+
+</body>
+</html>
