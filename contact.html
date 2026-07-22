@@ -30,13 +30,10 @@ a{color:inherit;text-decoration:none}
 .brand{display:flex;align-items:center;gap:10px;font-weight:650;letter-spacing:-.01em}
 .bmark{width:30px;height:30px;border-radius:8px;background:var(--pine);color:var(--mint);display:grid;place-items:center;font-family:var(--mono);font-size:15px;font-weight:700}
 .nav-links{display:flex;gap:26px;margin-left:auto}
-.nav-links a{position:relative;font-size:14.5px;color:var(--slate);transition:color .15s}
-.nav-links a::after{content:"";position:absolute;left:0;right:0;bottom:-6px;height:2px;border-radius:2px;background:var(--mint);transform:scaleX(0);transform-origin:left;transition:transform .2s ease}
+.nav-links a{font-size:14.5px;color:var(--slate);transition:color .15s}
 .nav-links a:hover{color:var(--ink)}
-.nav-links a:hover::after,.nav-links a[aria-current="page"]::after{transform:scaleX(1)}
 .nav-links a[aria-current="page"]{color:var(--ink);font-weight:600}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:9px;font-weight:600;font-size:15px;padding:12px 22px;border:1px solid transparent;cursor:pointer;transition:transform .12s,background .15s}
-.btn:hover{transform:translateY(-1px)}
 .btn:active{transform:scale(.98)}
 .btn-mint{background:var(--mint);color:var(--pine-deep)}
 .btn-mint:hover{background:#8FF0CE}
@@ -89,19 +86,7 @@ footer{background:var(--pine-deep);color:#8FCDBD;padding:44px 0}
 .foot-links a:hover{color:#EFFBF6}
 .foot small{font-size:13px;font-family:var(--mono)}
 
-/* reveal & micro-animaties */
-@keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
-.pagehead{animation:rise .45s ease both}
-.reveal{opacity:0;transform:translateY(18px);transition:opacity .45s ease,transform .45s ease}
-.reveal.in{opacity:1;transform:none}
-
-@media (prefers-reduced-motion:reduce){
-  .badge .dot{animation:none}
-  .pagehead{animation:none}
-  .reveal{opacity:1;transform:none;transition:none}
-  .nav-links a::after{transition:none}
-  .btn:hover{transform:none}
-}
+@media (prefers-reduced-motion:reduce){.badge .dot{animation:none}}
 @media (max-width:860px){
   .contact-grid{grid-template-columns:1fr}
   .form-card,.info-card{padding:26px}
@@ -129,6 +114,40 @@ footer{background:var(--pine-deep);color:#8FCDBD;padding:44px 0}
 /* --- footer contactregel --- */
 .foot-sub{display:flex;flex-wrap:wrap;gap:8px 24px;margin-top:22px;padding-top:18px;border-top:1px solid rgba(127,232,195,.14);font-size:13px;font-family:var(--mono);color:#8FCDBD}
 .foot-sub a:hover{color:#EFFBF6}
+
+.pagehead .kicker,.pagehead h1,.pagehead p{animation:rise .75s cubic-bezier(.22,1,.36,1) both}
+.pagehead h1{animation-delay:.08s}
+.pagehead p{animation-delay:.16s}
+
+/* --- modernisering: logo & animaties --- */
+.brand img{height:42px;width:auto;display:block;transition:transform .35s cubic-bezier(.22,1,.36,1)}
+.brand:hover img{transform:scale(1.045)}
+.nav-links a{position:relative}
+.nav-links a::after{content:"";position:absolute;left:0;bottom:-6px;height:2px;width:100%;background:var(--mint);border-radius:2px;transform:scaleX(0);transform-origin:left;transition:transform .28s cubic-bezier(.22,1,.36,1)}
+.nav-links a:hover::after,.nav-links a[aria-current="page"]::after{transform:scaleX(1)}
+.btn{transition:transform .18s cubic-bezier(.22,1,.36,1),background .15s,border-color .15s,box-shadow .25s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 10px 22px -10px rgba(14,59,54,.45)}
+.btn:active{transform:translateY(0) scale(.98)}
+@keyframes rise{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+.reveal{opacity:0;transform:translateY(26px);filter:blur(6px)}
+.reveal.in{opacity:1;transform:none;filter:none}
+.reveal,.card,.step,.waarde,.dienst,.fam-card,.info-card,.form-card{transition:opacity .7s cubic-bezier(.22,1,.36,1),transform .55s cubic-bezier(.22,1,.36,1),filter .7s cubic-bezier(.22,1,.36,1),box-shadow .4s cubic-bezier(.22,1,.36,1),border-color .25s,background .2s}
+.card:hover,.step:hover,.waarde:hover{transform:translateY(-4px);border-color:#B9CCC5;box-shadow:0 18px 40px -22px rgba(14,59,54,.3)}
+@media (prefers-reduced-motion:reduce){
+  .reveal{opacity:1;transform:none;filter:none;transition:none}
+  .brand img,.btn,.nav-links a::after{transition:none}
+  .hero .eyebrow,.hero h1,.hero .sub,.hero-cta,.hero-note,.console,.pagehead .kicker,.pagehead h1,.pagehead p{animation:none}
+}
+
+/* --- compacte nav bij scrollen --- */
+.nav-in{transition:height .35s cubic-bezier(.22,1,.36,1)}
+.brand img{transition:transform .35s cubic-bezier(.22,1,.36,1),height .35s cubic-bezier(.22,1,.36,1)}
+.nav.compact .nav-in{height:52px}
+.nav.compact .brand img{height:32px}
+.nav.compact{box-shadow:0 6px 20px -14px rgba(14,59,54,.3)}
+/* --- tweakbare positie witte boxen --- */
+:root{--boxen-lift:24px}
+.contact-grid{margin-top:calc(-1 * var(--boxen-lift))}
 </style>
 </head>
 <body>
@@ -136,7 +155,7 @@ footer{background:var(--pine-deep);color:#8FCDBD;padding:44px 0}
 <nav class="nav">
   <div class="wrap nav-in">
     <a class="brand" href="index.html" aria-label="Byte Company — naar home">
-      <span class="bmark">B</span> Byte Company
+      <img src="logo.png" alt="Byte Company">
     </a>
     <div class="nav-links">
       <a href="index.html">Home</a>
@@ -254,7 +273,7 @@ footer{background:var(--pine-deep);color:#8FCDBD;padding:44px 0}
 /* Koppel hier je formulierdienst (bijv. Formspree): maak een gratis formulier aan
    en vul hieronder de endpoint-URL in, bijv. "https://formspree.io/f/jouwcode".
    Zolang dit leeg is, verwijst het formulier naar het telefoonnummer. */
-var FORM_ENDPOINT = "https://formspree.io/f/mjgnoazk";
+var FORM_ENDPOINT = "";
 
 document.getElementById("contactform").addEventListener("submit", function(e){
   e.preventDefault();
@@ -294,25 +313,18 @@ document.getElementById("contactform").addEventListener("submit", function(e){
   var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   var els = document.querySelectorAll(".reveal");
   if (reduce || !("IntersectionObserver" in window)) {
-    els.forEach(function(el){ el.classList.remove("reveal"); });
+    els.forEach(function(el){ el.classList.add("in"); });
     return;
   }
-  function onthul(el, vertraging){
-    el.style.transitionDelay = vertraging + "ms";
-    el.classList.add("in");
-    setTimeout(function(){
-      el.style.transitionDelay = "";
-      el.classList.remove("reveal","in");
-    }, 450 + vertraging + 80);
-  }
   var io = new IntersectionObserver(function(entries){
-    var zichtbaar = entries.filter(function(e){ return e.isIntersecting; });
-    zichtbaar.forEach(function(e, i){
-      io.unobserve(e.target);
-      onthul(e.target, i * 80);
+    entries.forEach(function(e){
+      if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); setTimeout(function(){ e.target.style.transitionDelay = "0ms"; }, 900); }
     });
   }, { threshold: .12 });
-  els.forEach(function(el){ io.observe(el); });
+  els.forEach(function(el, i){
+    el.style.transitionDelay = Math.min(i * 90, 360) + "ms";
+    io.observe(el);
+  });
 })();
 </script>
 
@@ -328,6 +340,45 @@ document.getElementById("contactform").addEventListener("submit", function(e){
     mm.hidden = open;
   });
 })();
+</script>
+
+<script>
+(function(){
+  var nav = document.querySelector(".nav");
+  if (!nav) return;
+  var on = false;
+  function upd(){
+    var s = window.scrollY > 40;
+    if (s !== on) { on = s; nav.classList.toggle("compact", s); }
+  }
+  window.addEventListener("scroll", upd, { passive: true });
+  upd();
+})();
+</script>
+
+<script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/@babel/standalone@7/babel.min.js"></script>
+<script type="text/babel" src="tweaks-panel.jsx"></script>
+<script type="text/babel">
+const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
+  "boxenOmhoog": 26
+}/*EDITMODE-END*/;
+function TweaksApp(){
+  const [t, setTweak] = useTweaks(TWEAK_DEFAULTS);
+  React.useEffect(() => {
+    document.documentElement.style.setProperty('--boxen-lift', t.boxenOmhoog + 'px');
+  }, [t.boxenOmhoog]);
+  return (
+    <TweaksPanel>
+      <TweakSection label="Positie witte boxen" />
+      <TweakSlider label="Boxen omhoog" value={t.boxenOmhoog} min={0} max={64} step={2} unit="px" onChange={(v)=>setTweak('boxenOmhoog', v)} />
+    </TweaksPanel>
+  );
+}
+const __tw = document.createElement('div');
+document.body.appendChild(__tw);
+ReactDOM.createRoot(__tw).render(<TweaksApp/>);
 </script>
 
 </body>

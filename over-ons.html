@@ -30,13 +30,10 @@ a{color:inherit;text-decoration:none}
 .brand{display:flex;align-items:center;gap:10px;font-weight:650;letter-spacing:-.01em}
 .bmark{width:30px;height:30px;border-radius:8px;background:var(--pine);color:var(--mint);display:grid;place-items:center;font-family:var(--mono);font-size:15px;font-weight:700}
 .nav-links{display:flex;gap:26px;margin-left:auto}
-.nav-links a{position:relative;font-size:14.5px;color:var(--slate);transition:color .15s}
-.nav-links a::after{content:"";position:absolute;left:0;right:0;bottom:-6px;height:2px;border-radius:2px;background:var(--mint);transform:scaleX(0);transform-origin:left;transition:transform .2s ease}
+.nav-links a{font-size:14.5px;color:var(--slate);transition:color .15s}
 .nav-links a:hover{color:var(--ink)}
-.nav-links a:hover::after,.nav-links a[aria-current="page"]::after{transform:scaleX(1)}
 .nav-links a[aria-current="page"]{color:var(--ink);font-weight:600}
 .btn{display:inline-flex;align-items:center;gap:8px;border-radius:9px;font-weight:600;font-size:15px;padding:11px 20px;border:1px solid transparent;cursor:pointer;transition:transform .12s,background .15s}
-.btn:hover{transform:translateY(-1px)}
 .btn:active{transform:scale(.98)}
 .btn-mint{background:var(--mint);color:var(--pine-deep)}
 .btn-mint:hover{background:#8FF0CE}
@@ -49,25 +46,25 @@ a{color:inherit;text-decoration:none}
 h1{font-size:clamp(32px,4vw,46px);line-height:1.1;letter-spacing:-.025em;font-weight:700}
 .pagehead p{margin-top:16px;font-size:17.5px;color:var(--slate);max-width:54ch}
 
-/* verhaal + in het kort */
+/* verhaal */
 .story{padding-bottom:24px}
-.story-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:16px;align-items:start}
-.story-tekst{background:#fff;border:1px solid var(--line);border-radius:16px;padding:40px}
-.story-tekst h2{font-size:24px;letter-spacing:-.015em;margin-bottom:16px}
+.story-tekst{background:#fff;border:1px solid var(--line);border-radius:16px;padding:44px 48px;display:grid;grid-template-columns:.8fr 1.35fr;gap:18px 60px;align-items:start}
+.story-tekst h2{font-size:clamp(24px,2.6vw,30px);letter-spacing:-.02em;position:sticky;top:98px;max-width:12ch}
+.story-tekst h2::after{content:"";display:block;width:52px;height:3px;border-radius:3px;background:var(--mint);margin-top:16px}
 .story-tekst p{font-size:15.5px;color:var(--slate);margin-bottom:16px;max-width:62ch}
 .story-tekst p:last-child{margin-bottom:0}
 .story-tekst strong{color:var(--ink);font-weight:600}
 
-.kort-paneel{position:sticky;top:86px;background:var(--pine);border-radius:16px;padding:32px;color:#EFFBF6}
-.kort-paneel .kicker{color:var(--mint)}
-.kort-lijst{list-style:none;margin-top:4px}
-.kort-lijst li{position:relative;padding:13px 0 13px 28px;border-bottom:1px solid rgba(127,232,195,.14)}
-.kort-lijst li:last-child{border-bottom:none;padding-bottom:2px}
-.kort-lijst li::before{content:"";position:absolute;left:0;top:20px;width:10px;height:10px;border-radius:50%;background:var(--mint);box-shadow:0 0 0 3px rgba(127,232,195,.18)}
-.kort-lijst strong{display:block;font-size:15.5px;font-weight:600;letter-spacing:-.01em;color:#EFFBF6}
-.kort-lijst .wat{display:block;font-size:13.5px;color:#B9DCD0;margin-top:3px}
-
+/* tijdlijn */
+.tijdlijn{padding:64px 0 24px}
 h2.sectie{font-size:clamp(26px,3vw,34px);letter-spacing:-.02em;font-weight:700}
+.tl{margin-top:36px;border-left:2px solid var(--line);padding-left:28px}
+.tl-item{position:relative;padding-bottom:26px}
+.tl-item:last-child{padding-bottom:0}
+.tl-item::before{content:"";position:absolute;left:-35px;top:6px;width:12px;height:12px;border-radius:50%;background:var(--mint);border:2px solid var(--mint-dark)}
+.tl-item .wanneer{font-family:var(--mono);font-size:13px;color:var(--mint-dark);font-weight:600}
+.tl-item h3{font-size:16.5px;margin-top:2px}
+.tl-item p{font-size:14.5px;color:var(--slate);max-width:56ch}
 
 /* waarden */
 .waarden-sec{padding:64px 0 24px}
@@ -106,23 +103,16 @@ footer{background:var(--pine-deep);color:#8FCDBD;padding:44px 0}
 .foot-links a:hover{color:#EFFBF6}
 .foot small{font-size:13px;font-family:var(--mono)}
 
-/* reveal & micro-animaties */
-@keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
-.pagehead{animation:rise .45s ease both}
-.reveal{opacity:0;transform:translateY(18px);transition:opacity .45s ease,transform .45s ease}
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
 .reveal.in{opacity:1;transform:none}
 @media (prefers-reduced-motion:reduce){
   .reveal{opacity:1;transform:none;transition:none}
-  .pagehead{animation:none}
-  .nav-links a::after{transition:none}
-  .btn:hover{transform:none}
 }
 @media (max-width:860px){
-  .story-grid{grid-template-columns:1fr}
-  .kort-paneel{position:static;padding:26px}
   .waarden,.familie{grid-template-columns:1fr}
   .familie-band{padding:36px 28px}
-  .story-tekst{padding:28px}
+  .story-tekst{padding:28px;grid-template-columns:1fr;gap:8px 0}
+  .story-tekst h2{position:static;max-width:none;margin-bottom:10px}
   .cta{padding:36px 28px}
 }
 @media (max-width:640px){
@@ -147,6 +137,49 @@ footer{background:var(--pine-deep);color:#8FCDBD;padding:44px 0}
 /* --- footer contactregel --- */
 .foot-sub{display:flex;flex-wrap:wrap;gap:8px 24px;margin-top:22px;padding-top:18px;border-top:1px solid rgba(127,232,195,.14);font-size:13px;font-family:var(--mono);color:#8FCDBD}
 .foot-sub a:hover{color:#EFFBF6}
+
+.pagehead .kicker,.pagehead h1,.pagehead p{animation:rise .75s cubic-bezier(.22,1,.36,1) both}
+.pagehead h1{animation-delay:.08s}
+.pagehead p{animation-delay:.16s}
+
+/* --- modernisering: logo & animaties --- */
+.brand img{height:42px;width:auto;display:block;transition:transform .35s cubic-bezier(.22,1,.36,1)}
+.brand:hover img{transform:scale(1.045)}
+.nav-links a{position:relative}
+.nav-links a::after{content:"";position:absolute;left:0;bottom:-6px;height:2px;width:100%;background:var(--mint);border-radius:2px;transform:scaleX(0);transform-origin:left;transition:transform .28s cubic-bezier(.22,1,.36,1)}
+.nav-links a:hover::after,.nav-links a[aria-current="page"]::after{transform:scaleX(1)}
+.btn{transition:transform .18s cubic-bezier(.22,1,.36,1),background .15s,border-color .15s,box-shadow .25s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 10px 22px -10px rgba(14,59,54,.45)}
+.btn:active{transform:translateY(0) scale(.98)}
+@keyframes rise{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+.reveal{opacity:0;transform:translateY(26px);filter:blur(6px)}
+.reveal.in{opacity:1;transform:none;filter:none}
+.reveal,.card,.step,.waarde,.dienst,.fam-card,.info-card,.form-card{transition:opacity .7s cubic-bezier(.22,1,.36,1),transform .55s cubic-bezier(.22,1,.36,1),filter .7s cubic-bezier(.22,1,.36,1),box-shadow .4s cubic-bezier(.22,1,.36,1),border-color .25s,background .2s}
+.card:hover,.step:hover,.waarde:hover{transform:translateY(-4px);border-color:#B9CCC5;box-shadow:0 18px 40px -22px rgba(14,59,54,.3)}
+@media (prefers-reduced-motion:reduce){
+  .reveal{opacity:1;transform:none;filter:none;transition:none}
+  .brand img,.btn,.nav-links a::after{transition:none}
+  .hero .eyebrow,.hero h1,.hero .sub,.hero-cta,.hero-note,.console,.pagehead .kicker,.pagehead h1,.pagehead p{animation:none}
+}
+
+/* --- compacte nav bij scrollen --- */
+.nav-in{transition:height .35s cubic-bezier(.22,1,.36,1)}
+.brand img{transition:transform .35s cubic-bezier(.22,1,.36,1),height .35s cubic-bezier(.22,1,.36,1)}
+.nav.compact .nav-in{height:52px}
+.nav.compact .brand img{height:32px}
+.nav.compact{box-shadow:0 6px 20px -14px rgba(14,59,54,.3)}
+/* --- tweakbare positie witte boxen --- */
+.story-kop{display:flex;flex-direction:column;align-items:flex-start;align-self:stretch}
+.story-kop h2{position:static;margin:auto auto auto 56px;padding:24px 0}
+.story-logo{width:min(280px,95%);height:auto;opacity:.9;margin-top:auto}
+@media (max-width:760px){.story-logo{width:180px;margin-top:24px}}
+/* --- typemachine-effect --- */
+#typetitel::after{content:"";display:inline-block;width:3px;height:.9em;background:var(--mint);margin-left:4px;vertical-align:-.1em;animation:blink .9s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+@media (prefers-reduced-motion:reduce){#typetitel::after{display:none}}
+:root{--verhaal-lift:24px;--cta-lift:24px}
+.story .story-tekst{margin-top:calc(-1 * var(--verhaal-lift))}
+.cta-sec{padding-top:calc(88px - var(--cta-lift))}
 </style>
 </head>
 <body>
@@ -154,7 +187,7 @@ footer{background:var(--pine-deep);color:#8FCDBD;padding:44px 0}
 <nav class="nav">
   <div class="wrap nav-in">
     <a class="brand" href="index.html" aria-label="Byte Company — naar home">
-      <span class="bmark">B</span> Byte Company
+      <img src="logo.png" alt="Byte Company">
     </a>
     <div class="nav-links">
       <a href="index.html">Home</a>
@@ -187,38 +220,46 @@ footer{background:var(--pine-deep);color:#8FCDBD;padding:44px 0}
 <main>
 
   <div class="wrap story">
-    <div class="story-grid">
-      <article class="story-tekst reveal">
-        <h2>Van de hightech werkvloer naar software</h2>
-        <p>Byte Company komt niet uit een kantoorpand vol programmeurs, maar van de werkvloer van de hightech metaalindustrie. Daar zijn we dagelijks actief in CAD/CAM-omgevingen — de software waarmee machines worden aangestuurd die geen fouten mogen maken. In die wereld is precisie geen luxe, maar de norm.</p>
-        <p>Daarnaast runnen we een eigen 3D-printbedrijf voor prototypes en series. Ook daar geldt dezelfde aanpak: <strong>eerst goed nadenken, dan pas bouwen, en alles controleerbaar houden.</strong></p>
-        <p>En steeds vaker automatiseren we ons eigen werk. Facturen, planningen, rapportages — wat elke week terugkomt, laten we door software doen. Onze hightech klanten zagen dat en vroegen of we dat ook voor hen konden bouwen. Zo is Byte Company ontstaan.</p>
-        <p>Vandaag bouwen we onder deze naam apps, websites, automatiseringen en dashboards, met dezelfde mentaliteit als in de maakindustrie: <strong>strak, overzichtelijk en zonder poespas.</strong> En bewust klein — je schakelt altijd direct met de persoon die het werk doet.</p>
-      </article>
-
-      <aside class="kort-paneel reveal" aria-label="In het kort">
-        <p class="kicker">in het kort/</p>
-        <ul class="kort-lijst">
-          <li>
-            <strong>Hightech metaalindustrie</strong>
-            <span class="wat">Dagelijks actief in CAD/CAM-omgevingen waar precisie de norm is.</span>
-          </li>
-          <li>
-            <strong>Eigen 3D-printbedrijf</strong>
-            <span class="wat">Prototypes en series, met dezelfde technische discipline.</span>
-          </li>
-          <li>
-            <strong>Steeds meer automatisering</strong>
-            <span class="wat">Eerst voor onszelf, inmiddels ook voor onze hightech klanten.</span>
-          </li>
-          <li>
-            <strong>2026 · Byte Company</strong>
-            <span class="wat">Al die ervaring komt samen in een eigen software-tak.</span>
-          </li>
-        </ul>
-      </aside>
+    <article class="story-tekst reveal">
+      <div class="story-kop">
+      <h2 id="typetitel" data-typetext="Van de hightech werkvloer naar software">&nbsp;</h2>
+      <img class="story-logo" src="logo.png" alt="Byte Company">
+      </div>
+      <div class="story-body">
+      <p>Byte Company komt niet uit een kantoorpand vol programmeurs, maar van de werkvloer van de hightech metaalindustrie. Daar zijn we dagelijks actief in CAD/CAM-omgevingen — de software waarmee machines worden aangestuurd die geen fouten mogen maken. In die wereld is precisie geen luxe, maar de norm.</p>
+      <p>Daarnaast runnen we een eigen 3D-printbedrijf voor prototypes en series. Ook daar geldt dezelfde aanpak: <strong>eerst goed nadenken, dan pas bouwen, en alles controleerbaar houden.</strong></p>
+      <p>En steeds vaker automatiseren we ons eigen werk. Facturen, planningen, rapportages — wat elke week terugkomt, laten we door software doen. Onze hightech klanten zagen dat en vroegen of we dat ook voor hen konden bouwen. Zo is Byte Company ontstaan.</p>
+      <p>Vandaag bouwen we onder deze naam apps, websites, automatiseringen en dashboards, met dezelfde mentaliteit als in de maakindustrie: <strong>strak, overzichtelijk en zonder poespas.</strong> En bewust klein — je schakelt altijd direct met de persoon die het werk doet.</p>
     </div>
+    </article>
   </div>
+
+  <section class="wrap tijdlijn">
+    <p class="kicker">tijdlijn/</p>
+    <h2 class="sectie">In het kort</h2>
+    <div class="tl">
+      <div class="tl-item reveal">
+        <span class="wanneer">dagelijks</span>
+        <h3>Actief in de hightech metaalindustrie</h3>
+        <p>Volop aan het werk in CAD/CAM-omgevingen voor veeleisende technische bedrijven, waar precisie de norm is.</p>
+      </div>
+      <div class="tl-item reveal">
+        <span class="wanneer">daarnaast</span>
+        <h3>Een eigen 3D-printbedrijf</h3>
+        <p>Een eigen printservice voor prototypes en series, met dezelfde technische discipline.</p>
+      </div>
+      <div class="tl-item reveal">
+        <span class="wanneer">steeds vaker</span>
+        <h3>Automatiseren — eerst voor onszelf</h3>
+        <p>Steeds meer werk in onze eigen ondernemingen draait automatisch. Inmiddels bouwen we die automatiseringen ook voor onze hightech klanten.</p>
+      </div>
+      <div class="tl-item reveal">
+        <span class="wanneer">2026</span>
+        <h3>Byte Company</h3>
+        <p>Al die ervaring komt samen in een eigen software-tak: apps, websites, automatisering en dashboards.</p>
+      </div>
+    </div>
+  </section>
 
   <section class="wrap waarden-sec">
     <p class="kicker">waar wij voor staan/</p>
@@ -301,28 +342,37 @@ footer{background:var(--pine-deep);color:#8FCDBD;padding:44px 0}
 
 <script>
 (function(){
+  var typed = false;
+  function startType(){
+    if (typed) return; typed = true;
+    var h = document.getElementById("typetitel");
+    if (!h) return;
+    var txt = h.getAttribute("data-typetext") || "";
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) { h.textContent = txt; return; }
+    h.textContent = "";
+    var i = 0;
+    (function tick(){
+      if (i <= txt.length) { h.textContent = txt.slice(0, i); i++; setTimeout(tick, 45); }
+    })();
+  }
   var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   var els = document.querySelectorAll(".reveal");
   if (reduce || !("IntersectionObserver" in window)) {
-    els.forEach(function(el){ el.classList.remove("reveal"); });
-    return;
-  }
-  function onthul(el, vertraging){
-    el.style.transitionDelay = vertraging + "ms";
-    el.classList.add("in");
-    setTimeout(function(){
-      el.style.transitionDelay = "";
-      el.classList.remove("reveal","in");
-    }, 450 + vertraging + 80);
-  }
-  var io = new IntersectionObserver(function(entries){
-    var zichtbaar = entries.filter(function(e){ return e.isIntersecting; });
-    zichtbaar.forEach(function(e, i){
-      io.unobserve(e.target);
-      onthul(e.target, i * 80);
+    els.forEach(function(el){ el.classList.add("in"); });
+    startType();
+  } else {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); setTimeout(function(){ e.target.style.transitionDelay = "0ms"; }, 900); if (e.target.querySelector && e.target.querySelector("#typetitel")) startType(); }
+      });
+    }, { threshold: .12 });
+    els.forEach(function(el){
+      var p = el.parentElement, i = 0;
+      if (p) { for (var j = 0; j < p.children.length; j++) { if (p.children[j] === el) break; if (p.children[j].classList && p.children[j].classList.contains("reveal")) i++; } }
+      el.style.transitionDelay = Math.min(i * 90, 360) + "ms";
+      io.observe(el);
     });
-  }, { threshold: .12 });
-  els.forEach(function(el){ io.observe(el); });
+  }
 })();
 </script>
 
@@ -338,6 +388,49 @@ footer{background:var(--pine-deep);color:#8FCDBD;padding:44px 0}
     mm.hidden = open;
   });
 })();
+</script>
+
+<script>
+(function(){
+  var nav = document.querySelector(".nav");
+  if (!nav) return;
+  var on = false;
+  function upd(){
+    var s = window.scrollY > 40;
+    if (s !== on) { on = s; nav.classList.toggle("compact", s); }
+  }
+  window.addEventListener("scroll", upd, { passive: true });
+  upd();
+})();
+</script>
+
+<script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/@babel/standalone@7/babel.min.js"></script>
+<script type="text/babel" src="tweaks-panel.jsx"></script>
+<script type="text/babel">
+const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
+  "verhaalOmhoog": 24,
+  "ctaOmhoog": 24
+}/*EDITMODE-END*/;
+function TweaksApp(){
+  const [t, setTweak] = useTweaks(TWEAK_DEFAULTS);
+  React.useEffect(() => {
+    const r = document.documentElement.style;
+    r.setProperty('--verhaal-lift', t.verhaalOmhoog + 'px');
+    r.setProperty('--cta-lift', t.ctaOmhoog + 'px');
+  }, [t.verhaalOmhoog, t.ctaOmhoog]);
+  return (
+    <TweaksPanel>
+      <TweakSection label="Positie witte boxen" />
+      <TweakSlider label="Verhaalblok omhoog" value={t.verhaalOmhoog} min={0} max={64} step={2} unit="px" onChange={(v)=>setTweak('verhaalOmhoog', v)} />
+      <TweakSlider label="CTA-blok omhoog" value={t.ctaOmhoog} min={0} max={64} step={2} unit="px" onChange={(v)=>setTweak('ctaOmhoog', v)} />
+    </TweaksPanel>
+  );
+}
+const __tw = document.createElement('div');
+document.body.appendChild(__tw);
+ReactDOM.createRoot(__tw).render(<TweaksApp/>);
 </script>
 
 </body>
