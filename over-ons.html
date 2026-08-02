@@ -146,7 +146,7 @@ footer{background:var(--pine-deep);color:#8FCDBD;padding:44px 0}
 .mobiel-menu a.btn{border-bottom:none;margin-top:14px;justify-content:center;text-align:center;padding:12px 20px}
 @media (max-width:760px){
   .nav-links,.nav-cta{display:none}
-  .menu-btn{display:flex}
+  .menu-btn{display:flex;margin-left:auto}
   .mobiel-menu:not([hidden]){display:block}
 }
 /* --- footer contactregel --- */
@@ -195,6 +195,12 @@ footer{background:var(--pine-deep);color:#8FCDBD;padding:44px 0}
 :root{--verhaal-lift:24px;--cta-lift:24px}
 .story .story-tekst{margin-top:calc(-1 * var(--verhaal-lift))}
 .cta-sec{padding-top:calc(88px - var(--cta-lift))}
+
+/* --- mobiel: meer ruimte aan de zijkanten --- */
+@media (max-width:760px){
+  .wrap{padding:0 30px}
+  .tijdlijn .tl{margin-left:10px;padding-left:24px}
+}
 </style>
 </head>
 <body>
@@ -417,35 +423,6 @@ footer{background:var(--pine-deep);color:#8FCDBD;padding:44px 0}
   window.addEventListener("scroll", upd, { passive: true });
   upd();
 })();
-</script>
-
-<script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
-<script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
-<script src="https://unpkg.com/@babel/standalone@7/babel.min.js"></script>
-<script type="text/babel" src="tweaks-panel.jsx"></script>
-<script type="text/babel">
-const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
-  "verhaalOmhoog": 24,
-  "ctaOmhoog": 24
-}/*EDITMODE-END*/;
-function TweaksApp(){
-  const [t, setTweak] = useTweaks(TWEAK_DEFAULTS);
-  React.useEffect(() => {
-    const r = document.documentElement.style;
-    r.setProperty('--verhaal-lift', t.verhaalOmhoog + 'px');
-    r.setProperty('--cta-lift', t.ctaOmhoog + 'px');
-  }, [t.verhaalOmhoog, t.ctaOmhoog]);
-  return (
-    <TweaksPanel>
-      <TweakSection label="Positie witte boxen" />
-      <TweakSlider label="Verhaalblok omhoog" value={t.verhaalOmhoog} min={0} max={64} step={2} unit="px" onChange={(v)=>setTweak('verhaalOmhoog', v)} />
-      <TweakSlider label="CTA-blok omhoog" value={t.ctaOmhoog} min={0} max={64} step={2} unit="px" onChange={(v)=>setTweak('ctaOmhoog', v)} />
-    </TweaksPanel>
-  );
-}
-const __tw = document.createElement('div');
-document.body.appendChild(__tw);
-ReactDOM.createRoot(__tw).render(<TweaksApp/>);
 </script>
 
 </body>

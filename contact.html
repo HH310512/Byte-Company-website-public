@@ -123,7 +123,7 @@ footer{background:var(--pine-deep);color:#8FCDBD;padding:44px 0}
 .mobiel-menu a.btn{border-bottom:none;margin-top:14px;justify-content:center;text-align:center;padding:12px 20px}
 @media (max-width:760px){
   .nav-links,.nav-cta{display:none}
-  .menu-btn{display:flex}
+  .menu-btn{display:flex;margin-left:auto}
   .mobiel-menu:not([hidden]){display:block}
 }
 /* --- footer contactregel --- */
@@ -161,7 +161,7 @@ footer{background:var(--pine-deep);color:#8FCDBD;padding:44px 0}
 .nav.compact .brand img{height:32px}
 .nav.compact{box-shadow:0 6px 20px -14px rgba(14,59,54,.3)}
 /* --- tweakbare positie witte boxen --- */
-:root{--boxen-lift:24px}
+:root{--boxen-lift:26px}
 .contact-grid{margin-top:calc(-1 * var(--boxen-lift))}
 </style>
 </head>
@@ -369,31 +369,6 @@ document.getElementById("contactform").addEventListener("submit", function(e){
   window.addEventListener("scroll", upd, { passive: true });
   upd();
 })();
-</script>
-
-<script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
-<script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
-<script src="https://unpkg.com/@babel/standalone@7/babel.min.js"></script>
-<script type="text/babel" src="tweaks-panel.jsx"></script>
-<script type="text/babel">
-const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
-  "boxenOmhoog": 26
-}/*EDITMODE-END*/;
-function TweaksApp(){
-  const [t, setTweak] = useTweaks(TWEAK_DEFAULTS);
-  React.useEffect(() => {
-    document.documentElement.style.setProperty('--boxen-lift', t.boxenOmhoog + 'px');
-  }, [t.boxenOmhoog]);
-  return (
-    <TweaksPanel>
-      <TweakSection label="Positie witte boxen" />
-      <TweakSlider label="Boxen omhoog" value={t.boxenOmhoog} min={0} max={64} step={2} unit="px" onChange={(v)=>setTweak('boxenOmhoog', v)} />
-    </TweaksPanel>
-  );
-}
-const __tw = document.createElement('div');
-document.body.appendChild(__tw);
-ReactDOM.createRoot(__tw).render(<TweaksApp/>);
 </script>
 
 </body>
