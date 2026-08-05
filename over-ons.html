@@ -175,9 +175,12 @@ footer{background:var(--pine-deep);color:#8FCDBD;padding:44px 0}
 .story-logo{width:min(280px,95%);height:auto;opacity:.9;margin-top:auto}
 @media (max-width:760px){.story-logo{width:180px;margin-top:24px}}
 /* --- typemachine-effect --- */
-#typetitel::after{content:"";display:inline-block;width:3px;height:.72em;background:var(--mint);margin-left:4px;vertical-align:baseline;animation:blink .9s steps(1) infinite}
+#typetitel{position:relative}
+#typetitel .tt-tekst{position:absolute;left:0;top:0;right:0}
+#typetitel.typt .tt-ruimte{visibility:hidden}
+#typetitel.typt .tt-tekst::after{content:"";display:inline-block;width:3px;height:.72em;background:var(--mint);margin-left:4px;vertical-align:baseline;animation:blink .9s steps(1) infinite}
 @keyframes blink{50%{opacity:0}}
-@media (prefers-reduced-motion:reduce){#typetitel::after{display:none}}
+@media (prefers-reduced-motion:reduce){#typetitel.typt .tt-tekst::after{display:none}}
 :root{--verhaal-lift:24px;--cta-lift:24px}
 .story .story-tekst{margin-top:calc(-1 * var(--verhaal-lift))}
 .cta-sec{padding-top:calc(88px - var(--cta-lift))}
@@ -229,7 +232,7 @@ footer{background:var(--pine-deep);color:#8FCDBD;padding:44px 0}
   <div class="wrap story">
     <article class="story-tekst reveal">
       <div class="story-kop">
-      <h2 id="typetitel" data-typetext="Van de hightech werkvloer naar software">&nbsp;</h2>
+      <h2 id="typetitel" data-typetext="Van de hightech werkvloer naar software"><span class="tt-ruimte" aria-hidden="true">Van de hightech werkvloer naar software</span><span class="tt-tekst"></span></h2>
       <img class="story-logo" src="logo.png" alt="Byte Company">
       </div>
       <div class="story-body">
@@ -330,12 +333,15 @@ footer{background:var(--pine-deep);color:#8FCDBD;padding:44px 0}
     if (typed) return; typed = true;
     var h = document.getElementById("typetitel");
     if (!h) return;
+    var live = h.querySelector(".tt-tekst");
+    if (!live) return;
     var txt = h.getAttribute("data-typetext") || "";
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) { h.textContent = txt; return; }
-    h.textContent = "";
+    h.classList.add("typt");
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) { live.textContent = txt; return; }
+    live.textContent = "";
     var i = 0;
     (function tick(){
-      if (i <= txt.length) { h.textContent = txt.slice(0, i); i++; setTimeout(tick, 45); }
+      if (i <= txt.length) { live.textContent = txt.slice(0, i); i++; setTimeout(tick, 45); }
     })();
   }
   var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
