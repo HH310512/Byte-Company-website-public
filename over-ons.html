@@ -189,10 +189,10 @@ footer{background:var(--pine-deep);color:#8FCDBD;padding:44px 0}
 @media (max-width:760px){
   .wrap{padding:0 30px}
   .tijdlijn .tl{margin-left:10px;padding-left:24px}
-  /* kop en logo netjes verdeeld in de witte ruimte */
-  .story-kop{justify-content:center}
+  /* mobiel: kop en logo gewoon onder elkaar, geen flexbox die kan krimpen */
+  .story-kop{display:block;align-self:start}
   .story-kop h2{margin:0 0 0 56px;padding:0}
-  .story-logo{margin-top:30px;margin-bottom:26px}
+  .story-logo{display:block;margin:30px 0 26px}
 }
 </style>
 </head>
