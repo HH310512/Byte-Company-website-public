@@ -175,10 +175,10 @@ footer{background:var(--pine-deep);color:#8FCDBD;padding:44px 0}
 .story-logo{width:min(280px,95%);height:auto;opacity:.9;margin-top:auto}
 @media (max-width:760px){.story-logo{width:180px;margin-top:24px}}
 /* --- typemachine-effect --- */
-#typetitel{position:relative}
-#typetitel .tt-tekst{position:absolute;left:0;top:0;right:0}
+#typetitel{display:grid}
+#typetitel .tt-ruimte,#typetitel .tt-tekst{grid-area:1/1}
 #typetitel.typt .tt-ruimte{visibility:hidden}
-#typetitel.typt .tt-tekst::after{content:"";display:inline-block;width:3px;height:.72em;background:var(--mint);margin-left:4px;vertical-align:baseline;animation:blink .9s steps(1) infinite}
+#typetitel.typt .tt-tekst::after{content:"";display:inline-block;width:3px;height:.72em;background:var(--mint);margin-left:4px;margin-right:-7px;vertical-align:baseline;animation:blink .9s steps(1) infinite}
 @keyframes blink{50%{opacity:0}}
 @media (prefers-reduced-motion:reduce){#typetitel.typt .tt-tekst::after{display:none}}
 :root{--verhaal-lift:24px;--cta-lift:24px}
