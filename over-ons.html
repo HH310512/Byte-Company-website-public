@@ -171,11 +171,11 @@ footer{background:var(--pine-deep);color:#8FCDBD;padding:44px 0}
 .nav.compact{box-shadow:0 6px 20px -14px rgba(14,59,54,.3)}
 /* --- tweakbare positie witte boxen --- */
 .story-kop{display:flex;flex-direction:column;align-items:flex-start;align-self:stretch}
-.story-kop h2{position:static;margin:auto auto auto 56px;padding:24px 0}
+.story-kop h2{position:static;margin:auto auto auto 56px;padding:24px 0;line-height:1.25}
 .story-logo{width:min(280px,95%);height:auto;opacity:.9;margin-top:auto}
 @media (max-width:760px){.story-logo{width:180px;margin-top:24px}}
 /* --- typemachine-effect --- */
-#typetitel::after{content:"";display:inline-block;width:3px;height:.9em;background:var(--mint);margin-left:4px;vertical-align:-.1em;animation:blink .9s steps(1) infinite}
+#typetitel::after{content:"";display:inline-block;width:3px;height:.72em;background:var(--mint);margin-left:4px;vertical-align:baseline;animation:blink .9s steps(1) infinite}
 @keyframes blink{50%{opacity:0}}
 @media (prefers-reduced-motion:reduce){#typetitel::after{display:none}}
 :root{--verhaal-lift:24px;--cta-lift:24px}
