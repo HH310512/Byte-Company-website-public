@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Algemene voorwaarden | Byte Company</title>
+<meta name="description" content="De algemene voorwaarden van Byte Company voor automatisering, dashboards, apps en websites.">
+<link rel="canonical" href="https://bytecompany.nl/voorwaarden.html">
+<meta name="robots" content="index,follow">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://bytecompany.nl/voorwaarden.html">
+<meta property="og:title" content="Algemene voorwaarden | Byte Company">
+<meta property="og:description" content="De algemene voorwaarden van Byte Company voor automatisering, dashboards, apps en websites.">
+<meta property="og:image" content="https://bytecompany.nl/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="nl_NL">
+<meta property="og:site_name" content="Byte Company">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+:root{
+  --pine:#0E3B36;
+  --pine-deep:#0A2E29;
+  --mint:#7FE8C3;
+  --mint-tint:#DDF7EC;
+  --mint-dark:#14574C;
+  --ink:#131A18;
+  --mist:#F4F7F6;
+  --slate:#5E6E69;
+  --line:#E1E8E5;
+  --sans:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --mono:ui-monospace,"SF Mono","Cascadia Code",Consolas,"Liberation Mono",Menlo,monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--mist);color:var(--ink);line-height:1.65;font-size:16px}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:2px solid var(--mint-dark);outline-offset:3px;border-radius:4px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+
+.nav{position:sticky;top:0;z-index:50;background:rgba(244,247,246,.88);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav-in{display:flex;align-items:center;gap:28px;height:66px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:650;letter-spacing:-.01em}
+.brand img{height:34px;width:auto;display:block}
+.bmark{width:30px;height:30px;border-radius:8px;background:var(--pine);color:var(--mint);display:grid;place-items:center;font-family:var(--mono);font-size:15px;font-weight:700}
+.nav-links{display:flex;gap:26px;margin-left:auto}
+.nav-links a{font-size:14.5px;color:var(--slate);transition:color .15s;position:relative}
+.nav-links a::after{content:"";position:absolute;left:0;right:100%;bottom:-5px;height:2px;border-radius:2px;background:var(--mint);transition:right .18s ease}
+.nav-links a:hover::after,.nav-links a[aria-current="page"]::after{right:0}
+.nav-links a:hover{color:var(--ink)}
+.nav-links a[aria-current="page"]{color:var(--ink);font-weight:600}
+.btn{display:inline-flex;align-items:center;gap:8px;border-radius:9px;font-weight:600;font-size:15px;padding:11px 20px;border:1px solid transparent;cursor:pointer;transition:transform .12s,background .15s}
+.btn:hover{transform:translateY(-1px)}
+.btn:active{transform:translateY(0) scale(.98)}
+.btn-mint{background:var(--mint);color:var(--pine-deep)}
+.btn-mint:hover{background:#8FF0CE}
+.nav .btn{padding:9px 16px;font-size:14px}
+
+.pagehead{padding:76px 0 40px}
+.kicker{font-family:var(--mono);font-size:13px;letter-spacing:.08em;color:var(--mint-dark);margin-bottom:12px}
+h1{font-size:clamp(30px,4vw,44px);line-height:1.12;letter-spacing:-.025em;font-weight:700}
+.pagehead p{margin-top:16px;font-size:17px;color:var(--slate);max-width:60ch}
+.versie{display:inline-flex;align-items:center;gap:8px;margin-top:20px;background:var(--mint-tint);color:var(--mint-dark);font-family:var(--mono);font-size:13px;font-weight:600;padding:7px 14px;border-radius:99px}
+
+.vw-grid{display:grid;grid-template-columns:250px 1fr;gap:40px;align-items:start;padding-bottom:96px}
+
+.inhoud{position:sticky;top:90px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:22px 20px}
+.inhoud h2{font-family:var(--mono);font-size:12px;letter-spacing:.07em;color:var(--slate);font-weight:600;margin-bottom:12px}
+.inhoud ol{list-style:none;counter-reset:toc}
+.inhoud li{counter-increment:toc}
+.inhoud a{display:block;font-size:14px;color:var(--slate);padding:5px 0;line-height:1.4;transition:color .15s}
+.inhoud a::before{content:counter(toc) ". ";font-family:var(--mono);font-size:12px;color:var(--mint-dark)}
+.inhoud a:hover{color:var(--ink)}
+
+.artikelen{background:#fff;border:1px solid var(--line);border-radius:16px;padding:44px 48px;counter-reset:art}
+article{counter-increment:art;padding-bottom:30px;margin-bottom:30px;border-bottom:1px solid var(--line);scroll-margin-top:86px}
+article:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
+article h2{font-size:19px;letter-spacing:-.01em;margin-bottom:14px;display:flex;gap:12px;align-items:baseline}
+article h2::before{content:counter(art);font-family:var(--mono);font-size:13px;font-weight:700;color:var(--pine-deep);background:var(--mint);padding:3px 9px;border-radius:6px;flex-shrink:0}
+article p{font-size:15.5px;color:var(--slate);margin-bottom:12px;max-width:70ch}
+article p:last-child{margin-bottom:0}
+article strong{color:var(--ink);font-weight:600}
+article ul{list-style:none;margin:0 0 12px}
+article li{position:relative;padding:5px 0 5px 26px;font-size:15.5px;color:var(--slate);max-width:70ch}
+article li::before{content:"";position:absolute;left:2px;top:14px;width:6px;height:6px;border-radius:50%;background:var(--mint)}
+
+.let-op{background:var(--mint-tint);border-radius:10px;padding:16px 18px;margin:14px 0 0}
+.let-op p{color:var(--mint-dark);font-size:14.5px;margin:0}
+.let-op strong{color:var(--mint-dark)}
+
+.slot{margin-top:22px;background:var(--pine);color:#B9DCD0;border-radius:14px;padding:26px 30px;font-size:14.5px}
+.slot strong{color:#EFFBF6}
+.slot a{color:var(--mint);font-weight:600}
+
+footer{background:var(--pine-deep);color:#8FCDBD;padding:44px 0}
+.foot{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.foot .brand{color:#EFFBF6}
+.foot .bmark{background:var(--mint);color:var(--pine-deep)}
+.foot-links{display:flex;gap:22px;font-size:14px}
+.foot-links a:hover{color:#EFFBF6}
+.foot-sub{display:flex;flex-wrap:wrap;gap:8px 24px;margin-top:22px;padding-top:18px;border-top:1px solid rgba(127,232,195,.14);font-size:13px;font-family:var(--mono);color:#8FCDBD}
+.foot-sub a:hover{color:#EFFBF6}
+
+@keyframes rise{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+.pagehead .kicker{animation:rise .4s cubic-bezier(.22,1,.36,1) both}
+.pagehead h1{animation:rise .45s .05s cubic-bezier(.22,1,.36,1) both}
+.pagehead p,.versie{animation:rise .45s .1s cubic-bezier(.22,1,.36,1) both}
+
+/* --- hamburger menu --- */
+.menu-btn{display:none;flex-direction:column;justify-content:center;align-items:stretch;gap:5px;width:44px;height:42px;background:transparent;border:1px solid var(--line);border-radius:9px;cursor:pointer;padding:0 11px}
+.menu-btn span{display:block;height:2px;background:var(--ink);border-radius:2px;transition:transform .2s,opacity .2s}
+.menu-btn[aria-expanded="true"] span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.menu-btn[aria-expanded="true"] span:nth-child(2){opacity:0}
+.menu-btn[aria-expanded="true"] span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.mobiel-menu{display:none;border-top:1px solid var(--line);background:rgba(244,247,246,.98);padding:10px 24px 20px}
+.mobiel-menu a{display:block;padding:13px 4px;font-size:16px;color:var(--ink);border-bottom:1px solid var(--line)}
+.mobiel-menu a.btn{border-bottom:none;margin-top:14px;justify-content:center;text-align:center;padding:12px 20px}
+
+@media (max-width:940px){
+  .vw-grid{grid-template-columns:1fr;gap:24px}
+  .inhoud{position:static}
+  .artikelen{padding:28px}
+}
+@media (max-width:760px){
+  .nav-links,.nav-cta{display:none}
+  .menu-btn{display:flex;margin-left:auto}
+  .mobiel-menu:not([hidden]){display:block}
+  .wrap{padding:0 30px}
+  .pagehead{padding:52px 0 32px}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}
+}
+@media print{
+  .nav,.mobiel-menu,.inhoud,footer,.versie{display:none}
+  body{background:#fff;font-size:11pt}
+  .artikelen{border:none;padding:0}
+  .vw-grid{display:block;padding-bottom:0}
+  article{break-inside:avoid;border-bottom:none;padding-bottom:14px;margin-bottom:14px}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="index.html" aria-label="Byte Company — naar home">
+      <img src="logo.png" alt="Byte Company">
+    </a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="diensten.html">Diensten</a>
+      <a href="over-ons.html">Over ons</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <a class="btn btn-mint nav-cta" href="contact.html">Plan een gesprek</a>
+    <button class="menu-btn" type="button" aria-label="Menu openen" aria-expanded="false" aria-controls="mobielmenu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mobiel-menu" id="mobielmenu" hidden>
+    <a href="index.html">Home</a>
+    <a href="diensten.html">Diensten</a>
+    <a href="over-ons.html">Over ons</a>
+    <a href="contact.html">Contact</a>
+    <a class="btn btn-mint" href="contact.html">Plan een gesprek</a>
+  </div>
+</nav>
+
+<header class="pagehead">
+  <div class="wrap">
+    <p class="kicker">voorwaarden/</p>
+    <h1>Algemene voorwaarden</h1>
+    <p>Zo werken we samen. We houden het zo kort en leesbaar mogelijk: wat je van ons mag verwachten, wat wij van jou nodig hebben, en hoe we omgaan met prijzen, rechten en aansprakelijkheid.</p>
+    <span class="versie">augustus 2026</span>
+  </div>
+</header>
+
+<main class="wrap vw-grid">
+
+  <aside class="inhoud">
+    <h2>inhoud</h2>
+    <ol>
+      <li><a href="#a1">Wie wij zijn</a></li>
+      <li><a href="#a2">Wanneer deze voorwaarden gelden</a></li>
+      <li><a href="#a3">Offertes en afspraken</a></li>
+      <li><a href="#a4">Hoe we werken</a></li>
+      <li><a href="#a5">Wat wij van jou nodig hebben</a></li>
+      <li><a href="#a6">Oplevering en akkoord</a></li>
+      <li><a href="#a7">Prijzen en betalen</a></li>
+      <li><a href="#a8">Wijzigingen en meerwerk</a></li>
+      <li><a href="#a9">Rechten op de software</a></li>
+      <li><a href="#a10">Materiaal dat je aanlevert</a></li>
+      <li><a href="#a11">Geheimhouding</a></li>
+      <li><a href="#a12">Persoonsgegevens</a></li>
+      <li><a href="#a13">Garantie en herstel</a></li>
+      <li><a href="#a14">Diensten van anderen</a></li>
+      <li><a href="#a15">Aansprakelijkheid</a></li>
+      <li><a href="#a16">Overmacht</a></li>
+      <li><a href="#a17">Onderhoud en beheer</a></li>
+      <li><a href="#a18">Duur en opzeggen</a></li>
+      <li><a href="#a19">Klachten</a></li>
+      <li><a href="#a20">Extra regels voor consumenten</a></li>
+      <li><a href="#a21">Slot</a></li>
+    </ol>
+  </aside>
+
+  <div class="artikelen">
+
+    <article id="a1">
+      <h2>Wie wij zijn</h2>
+      <p>Byte Company is een handelsnaam van een eenmanszaak, gevestigd in Noord-Brabant en ingeschreven bij de Kamer van Koophandel onder nummer <strong>89199073</strong>. In deze voorwaarden noemen we onszelf "wij" of "Byte Company", en noemen we de ander "jij" of "de klant".</p>
+      <p>Je bereikt ons via het contactformulier op bytecompany.nl of telefonisch op +31 6 27 24 98 77.</p>
+    </article>
+
+    <article id="a2">
+      <h2>Wanneer deze voorwaarden gelden</h2>
+      <p>Deze voorwaarden gelden voor elke offerte, opdracht en overeenkomst waarbij wij software, automatiseringen, dashboards, apps of websites voor je maken, onderhouden of beheren.</p>
+      <p>Wijken we ergens van af? Dan leggen we dat schriftelijk vast. Wat we apart afspreken, gaat vóór deze voorwaarden.</p>
+      <p>Eigen inkoopvoorwaarden van een zakelijke klant wijzen wij uitdrukkelijk van de hand, tenzij we schriftelijk anders afspreken.</p>
+    </article>
+
+    <article id="a3">
+      <h2>Offertes en afspraken</h2>
+      <p>Onze offertes zijn vrijblijvend en <strong>30 dagen geldig</strong>, tenzij er iets anders in staat. Alle bedragen zijn exclusief btw, tenzij je consument bent — dan noemen we bedragen inclusief btw.</p>
+      <p>Een opdracht komt tot stand zodra je onze offerte of voorstel schriftelijk of per e-mail accepteert, of zodra wij op jouw verzoek met het werk zijn begonnen.</p>
+      <p>Kennelijke vergissingen of schrijffouten in een offerte binden ons niet.</p>
+    </article>
+
+    <article id="a4">
+      <h2>Hoe we werken</h2>
+      <p>We werken in stappen. Meestal beginnen we met een verkenning: we kijken mee hoe je nu werkt en leveren daarna een plan met de stappen en wat die ongeveer kosten. Voor elke volgende stap maken we een eigen afspraak, zodat je steeds zelf beslist of we doorgaan.</p>
+      <p>Wij voeren de opdracht naar beste kunnen uit. Tenzij we uitdrukkelijk een concreet resultaat zijn overeengekomen, gaat het om een <strong>inspanningsverplichting</strong>: we doen wat een vakkundig en zorgvuldig werkend bedrijf hoort te doen.</p>
+      <p>Genoemde termijnen zijn een inschatting en geen fatale termijn, tenzij we schriftelijk anders afspreken. Dreigt een termijn niet gehaald te worden, dan laten we dat zo snel mogelijk weten.</p>
+      <p>Wij mogen werk laten uitvoeren door anderen. Wij blijven daarbij jouw aanspreekpunt en verantwoordelijk voor het resultaat.</p>
+    </article>
+
+    <article id="a5">
+      <h2>Wat wij van jou nodig hebben</h2>
+      <p>Om ons werk goed te kunnen doen, zorg jij ervoor dat:</p>
+      <ul>
+        <li>je op tijd de informatie, gegevens en toegang geeft die we nodig hebben;</li>
+        <li>er één vast aanspreekpunt is dat beslissingen kan nemen;</li>
+        <li>we mogen werken met of koppelen aan de systemen die je gebruikt, en dat je daarvoor de benodigde licenties en rechten hebt;</li>
+        <li>je testomgevingen, testgegevens en medewerkers beschikbaar stelt wanneer dat nodig is.</li>
+      </ul>
+      <p>Loopt het werk vertraging op omdat wij hierop moeten wachten, dan mogen wij de extra uren en kosten in rekening brengen en schuift de planning op.</p>
+    </article>
+
+    <article id="a6">
+      <h2>Oplevering en akkoord</h2>
+      <p>Als een stap klaar is, leveren we die op ter beoordeling. Je hebt daarna <strong>tien werkdagen</strong> om te laten weten of alles werkt zoals afgesproken.</p>
+      <p>Meld je binnen die termijn niets, of neem je het resultaat in gebruik, dan geldt het als geaccepteerd.</p>
+      <p>Kleine afwijkingen die het gebruik niet in de weg staan, zijn geen reden om acceptatie te weigeren. Die herstellen we gewoon.</p>
+    </article>
+
+    <article id="a7">
+      <h2>Prijzen en betalen</h2>
+      <p>We spreken per stap af wat die kost: een vast bedrag, of een verwacht aantal uren tegen ons uurtarief. Werken we op basis van uren, dan laten we het je weten voordat we doorwerken als de inschatting niet gehaald wordt.</p>
+      <p>Facturen betaal je binnen <strong>14 dagen</strong> na de factuurdatum. Bij langere trajecten factureren we per stap of per maand.</p>
+      <p>Betaal je niet op tijd, dan sturen we eerst een herinnering. Blijft betaling daarna uit, dan mogen wij de wettelijke (handels)rente en de incassokosten in rekening brengen, en het werk opschorten totdat er betaald is.</p>
+      <p>Reis- en verblijfkosten, licenties, hosting en andere kosten van derden brengen we apart in rekening, tenzij we anders afspreken. Tarieven mogen wij jaarlijks aanpassen; bij een verhoging laten we dat minimaal een maand van tevoren weten.</p>
+    </article>
+
+    <article id="a8">
+      <h2>Wijzigingen en meerwerk</h2>
+      <p>Wil je onderweg iets anders of iets extra's? Dat kan. We bespreken dan wat het betekent voor de planning en de kosten, en gaan pas verder als je akkoord bent.</p>
+      <p>Werk dat buiten de afgesproken opdracht valt, is meerwerk en factureren we apart.</p>
+    </article>
+
+    <article id="a9">
+      <h2>Rechten op de software</h2>
+      <p>Zodra je alles hebt betaald, krijg je een <strong>gebruiksrecht</strong> op de software die wij speciaal voor jou hebben gemaakt: je mag die binnen je eigen organisatie gebruiken, zonder beperking in tijd.</p>
+      <p>De auteursrechten en andere intellectuele eigendomsrechten blijven bij ons. Dat geldt in het bijzonder voor de algemene bouwstenen, scripts, methodes en kennis die wij eerder hebben ontwikkeld of los van jouw opdracht gebruiken. Die mogen wij vrij blijven gebruiken en hergebruiken voor anderen — vanzelfsprekend zonder jouw bedrijfsgegevens of vertrouwelijke informatie.</p>
+      <p>Wil je de broncode in handen krijgen of de rechten volledig overnemen? Dat kan, maar dan spreken we dat apart af en leggen we het schriftelijk vast.</p>
+      <p>Je mag de software niet doorverkopen, verhuren of aan derden ter beschikking stellen zonder onze schriftelijke toestemming.</p>
+      <p>Wij mogen het werk in algemene bewoordingen gebruiken als referentie, tenzij je aangeeft dat je dat liever niet hebt.</p>
+    </article>
+
+    <article id="a10">
+      <h2>Materiaal dat je aanlevert</h2>
+      <p>Lever je teksten, afbeeldingen, logo's, gegevens of andere materialen aan, dan ga je ervan uit dat je die mag gebruiken. Jij bent verantwoordelijk voor de juistheid ervan en voor de rechten erop.</p>
+      <p>Spreekt iemand ons aan omdat aangeleverd materiaal inbreuk maakt op zijn rechten, dan vrijwaar je ons daarvoor. Deze bepaling geldt niet als je consument bent.</p>
+    </article>
+
+    <article id="a11">
+      <h2>Geheimhouding</h2>
+      <p>Alles wat wij bij jou zien en horen, houden wij voor ons: je processen, je cijfers, je werkwijze en je systemen. Wij delen dat niet met anderen en gebruiken het alleen voor jouw opdracht.</p>
+      <p>Andersom geldt hetzelfde voor wat wij met jou delen. Deze afspraak blijft gelden nadat de opdracht is afgerond.</p>
+    </article>
+
+    <article id="a12">
+      <h2>Persoonsgegevens</h2>
+      <p>Verwerken wij bij het uitvoeren van de opdracht persoonsgegevens waarvoor jij verantwoordelijk bent, dan sluiten we daarvoor een verwerkersovereenkomst. Wij verwerken die gegevens alleen in jouw opdracht en beveiligen ze passend.</p>
+      <p>Voor onze eigen administratie en contact met jou verwerken wij gegevens volgens de Algemene verordening gegevensbescherming (AVG).</p>
+    </article>
+
+    <article id="a13">
+      <h2>Garantie en herstel</h2>
+      <p>Software is nooit helemaal foutloos, en dat kunnen we ook niet beloven. Wel zorgen we dat wat we maken doet wat we hebben afgesproken.</p>
+      <p>Blijkt binnen <strong>drie maanden</strong> na oplevering dat iets niet werkt zoals afgesproken, dan herstellen we dat kosteloos. Meld het wel zo snel mogelijk nadat je het ontdekt.</p>
+      <p>De garantie geldt niet als de oorzaak ligt bij wijzigingen die anderen hebben aangebracht, bij verkeerd gebruik, of bij veranderingen in systemen van derden waarop wij geen invloed hebben. Herstel daarvan doen we graag, maar dan tegen ons normale tarief.</p>
+      <div class="let-op">
+        <p><strong>Ben je consument?</strong> Dan komen je wettelijke rechten hier niet mee te vervallen. Deze garantie komt daar bovenop.</p>
+      </div>
+    </article>
+
+    <article id="a14">
+      <h2>Diensten van anderen</h2>
+      <p>Voor veel oplossingen zijn we afhankelijk van diensten van anderen: hosting, koppelingen, licenties en cloudsoftware. Op die diensten gelden de voorwaarden van die partijen.</p>
+      <p>Wij zijn niet aansprakelijk voor storingen, prijswijzigingen of het stoppen van zulke diensten. Gebeurt dat, dan denken we uiteraard mee over een oplossing.</p>
+    </article>
+
+    <article id="a15">
+      <h2>Aansprakelijkheid</h2>
+      <p>Gaat er iets mis en is dat onze schuld, dan is onze aansprakelijkheid beperkt tot <strong>het bedrag dat je voor die opdracht hebt betaald</strong>, of, als de schade door onze verzekering wordt gedekt, tot het bedrag dat de verzekeraar uitkeert.</p>
+      <p>Wij zijn niet aansprakelijk voor indirecte schade. Denk aan gemiste omzet, stilstand van de productie, verlies van gegevens, of schade doordat een koppeling of automatisering niet werkte.</p>
+      <p>Deze beperkingen gelden niet als de schade het gevolg is van opzet of bewuste roekeloosheid van onze kant.</p>
+      <p>Voorwaarde is wel dat je de schade zo snel mogelijk meldt, en in ieder geval binnen twee maanden nadat je die hebt ontdekt.</p>
+      <div class="let-op">
+        <p><strong>Ben je consument?</strong> Dan gelden deze beperkingen alleen voor zover de wet dat toestaat. Je wettelijke rechten blijven altijd overeind.</p>
+      </div>
+    </article>
+
+    <article id="a16">
+      <h2>Overmacht</h2>
+      <p>Kunnen wij ons werk niet doen door iets waar we niets aan kunnen doen — denk aan langdurige uitval van internet of stroom, ziekte, of het wegvallen van diensten van derden — dan mogen we de opdracht opschorten zolang dat duurt.</p>
+      <p>Duurt de situatie langer dan twee maanden, dan mogen wij allebei de overeenkomst beëindigen. Werk dat al is gedaan, factureren we naar rato.</p>
+    </article>
+
+    <article id="a17">
+      <h2>Onderhoud en beheer</h2>
+      <p>Spreken we onderhoud of beheer af, dan leggen we vast wat daaronder valt: bijvoorbeeld in de gaten houden of alles draait, updates uitvoeren en storingen oplossen.</p>
+      <p>Tenzij anders afgesproken geldt geen gegarandeerde reactietijd buiten kantooruren. Werk dat buiten het onderhoud valt, factureren we apart.</p>
+      <p>Een onderhoudsafspraak loopt per maand door en is maandelijks opzegbaar, tenzij we een andere looptijd afspreken.</p>
+    </article>
+
+    <article id="a18">
+      <h2>Duur en opzeggen</h2>
+      <p>Een opdracht eindigt zodra het afgesproken werk is opgeleverd en betaald.</p>
+      <p>Doorlopende afspraken, zoals onderhoud, kun je maandelijks opzeggen tegen het einde van de maand. Wij hanteren dezelfde termijn.</p>
+      <p>Wij mogen de samenwerking direct stoppen als je ondanks een herinnering niet betaalt, als je failliet gaat of surseance aanvraagt, of als voortzetting redelijkerwijs niet van ons kan worden gevraagd. Werk dat al is gedaan, blijft verschuldigd.</p>
+    </article>
+
+    <article id="a19">
+      <h2>Klachten</h2>
+      <p>Ben je ergens niet tevreden over? Laat het ons weten, het liefst zo snel mogelijk. We gaan er serieus mee aan de slag en reageren binnen twee weken inhoudelijk.</p>
+      <p>Klachten over een factuur meld je binnen 14 dagen na de factuurdatum. Een klacht schort de betalingsverplichting niet op, tenzij je consument bent.</p>
+    </article>
+
+    <article id="a20">
+      <h2>Extra regels voor consumenten</h2>
+      <p>Ben je consument — je koopt dus niet voor een bedrijf of beroep — dan gelden er een paar extra regels.</p>
+      <p><strong>Bedenktijd.</strong> Sluiten we de overeenkomst volledig op afstand, bijvoorbeeld via e-mail of telefoon, dan mag je die binnen <strong>14 dagen</strong> zonder opgaaf van reden ontbinden. Wil je dat we binnen die 14 dagen al beginnen, dan vragen we je daar uitdrukkelijk om akkoord. Ontbind je daarna alsnog, dan betaal je het werk dat we tot dat moment hebben gedaan.</p>
+      <p><strong>Je wettelijke rechten.</strong> Niets in deze voorwaarden beperkt de rechten die je als consument volgens de wet hebt. Waar een bepaling in strijd is met dwingend consumentenrecht, geldt de wet.</p>
+      <p><strong>Geschillen.</strong> Komen we er samen niet uit, dan mag je het geschil altijd voorleggen aan de rechter die volgens de wet bevoegd is.</p>
+    </article>
+
+    <article id="a21">
+      <h2>Slot</h2>
+      <p>Op onze overeenkomsten is <strong>Nederlands recht</strong> van toepassing.</p>
+      <p>Geschillen leggen we voor aan de bevoegde rechter in het arrondissement Oost-Brabant. Ben je consument, dan mag je binnen een maand nadat wij ons hierop beroepen kiezen voor de rechter die volgens de wet bevoegd is.</p>
+      <p>Is een bepaling uit deze voorwaarden ongeldig, dan blijven de overige bepalingen gewoon gelden. We vervangen die bepaling dan door een geldige die er zo dicht mogelijk bij komt.</p>
+      <p>Wij mogen deze voorwaarden wijzigen. Voor lopende opdrachten gelden de voorwaarden zoals die golden bij het aangaan ervan.</p>
+    </article>
+
+    <div class="slot">
+      <p><strong>Augustus 2026.</strong> Deze voorwaarden zijn te vinden op bytecompany.nl/voorwaarden.html en sturen we op verzoek kosteloos toe. Vragen erover? <a href="contact.html">Neem gerust contact op</a>.</p>
+    </div>
+
+  </div>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <a class="brand" href="index.html"><span class="bmark">B</span> Byte Company</a>
+      <div class="foot-links">
+        <a href="index.html">Home</a>
+        <a href="diensten.html">Diensten</a>
+        <a href="over-ons.html">Over ons</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+    <div class="foot-sub">
+      <a href="tel:+31627249877">+31 6 27 24 98 77</a>
+      <span>Noord-Brabant, NL</span>
+      <span>KvK 89199073</span>
+      <span>© 2026 Byte Company</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var mb = document.querySelector(".menu-btn");
+  var mm = document.getElementById("mobielmenu");
+  if (!mb || !mm) return;
+  mb.addEventListener("click", function(){
+    var open = mb.getAttribute("aria-expanded") === "true";
+    mb.setAttribute("aria-expanded", String(!open));
+    mb.setAttribute("aria-label", open ? "Menu openen" : "Menu sluiten");
+    mm.hidden = open;
+  });
+})();
+</script>
+
+</body>
+</html>
