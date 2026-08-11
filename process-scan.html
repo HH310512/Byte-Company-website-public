@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Process Scan voor maakbedrijven | Byte Company</title>
+<meta name="description" content="Ontdek in een halve of hele dag waar handwerk, dubbel werk en vertraging in je productieproces ontstaan. Plan een Process Scan van Byte Company.">
+<link rel="canonical" href="https://bytecompany.nl/process-scan.html">
+<style>
+:root{
+  --pine:#0E3B36;
+  --pine-deep:#0A2E29;
+  --mint:#7FE8C3;
+  --mint-tint:#DDF7EC;
+  --mint-dark:#14574C;
+  --ink:#131A18;
+  --mist:#F4F7F6;
+  --slate:#5E6E69;
+  --line:#E1E8E5;
+  --sans:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --mono:ui-monospace,"SF Mono","Cascadia Code",Consolas,"Liberation Mono",Menlo,monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{overflow-y:scroll}
+body{font-family:var(--sans);background:var(--mist);color:var(--ink);line-height:1.65;font-size:16px;padding-top:72px}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:2px solid var(--mint-dark);outline-offset:3px;border-radius:4px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+.nav{position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(244,247,246,.88);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav-in{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:20px;height:72px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:650;letter-spacing:-.01em;flex-shrink:0}
+.brand img{height:42px;width:160px;display:block;object-fit:contain;transition:transform .35s cubic-bezier(.22,1,.36,1)}
+.brand:hover img{transform:scale(1.045)}
+.bmark{width:30px;height:30px;border-radius:8px;background:var(--pine);color:var(--mint);display:grid;place-items:center;font-family:var(--mono);font-size:15px;font-weight:700}
+.nav-links{display:grid;grid-template-columns:repeat(5,max-content);justify-content:center;align-items:center;gap:40px;margin-left:auto}
+.nav-links a{font-size:14.5px;color:var(--slate);transition:color .15s;position:relative;display:inline-flex;align-items:center;justify-content:center;white-space:nowrap;flex-shrink:0;font-weight:600;width:100%;min-width:0;height:34px;padding:0}
+.nav-links a:hover{color:var(--ink)}
+.nav-links a[aria-current="page"]{color:var(--ink);font-weight:600}
+.nav-links a::after{content:"";position:absolute;left:6px;right:6px;bottom:-6px;height:2px;background:var(--mint);border-radius:2px;transform:scaleX(0);transform-origin:left;transition:transform .28s cubic-bezier(.22,1,.36,1)}
+.nav-links a:hover::after,.nav-links a[aria-current="page"]::after{transform:scaleX(1)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:9px;font-weight:600;font-size:15px;padding:12px 20px;border:1px solid transparent;cursor:pointer;transition:transform .18s cubic-bezier(.22,1,.36,1),background .15s,border-color .15s,box-shadow .25s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 10px 22px -10px rgba(14,59,54,.45)}
+.btn:active{transform:translateY(0) scale(.98)}
+.btn-mint{background:var(--mint);color:var(--pine-deep)}
+.btn-mint:hover{background:#8FF0CE}
+.btn-pine{background:var(--pine);color:#EFFBF6}
+.btn-pine:hover{background:#12463F}
+.btn-ghost{background:transparent;color:var(--pine);border-color:#C7D2CE}
+.btn-ghost:hover{border-color:var(--pine)}
+.nav .btn{padding:9px 16px;font-size:14px}
+.menu-btn{display:none;flex-direction:column;justify-content:center;align-items:stretch;gap:5px;width:44px;height:42px;background:transparent;border:1px solid var(--line);border-radius:9px;cursor:pointer;padding:0 11px}
+.menu-btn span{display:block;height:2px;background:var(--ink);border-radius:2px;transition:transform .2s,opacity .2s}
+.menu-btn[aria-expanded="true"] span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.menu-btn[aria-expanded="true"] span:nth-child(2){opacity:0}
+.menu-btn[aria-expanded="true"] span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.mobiel-menu{display:none;border-top:1px solid var(--line);background:rgba(244,247,246,.98);padding:10px 24px 20px}
+.mobiel-menu a{display:block;padding:13px 4px;font-size:16px;color:var(--ink);border-bottom:1px solid var(--line)}
+.mobiel-menu a.btn{border-bottom:none;margin-top:14px;justify-content:center;text-align:center;padding:12px 20px}
+.pagehead{padding:76px 0 36px}
+.kicker{font-family:var(--mono);font-size:13px;letter-spacing:.08em;color:var(--mint-dark);margin-bottom:12px}
+h1{font-size:clamp(32px,4vw,46px);line-height:1.1;letter-spacing:-.025em;font-weight:700}
+.pagehead p{margin-top:16px;font-size:17.5px;color:var(--slate);max-width:60ch}
+.hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.card,.panel{background:#fff;border:1px solid var(--line);border-radius:16px;padding:32px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:24px 0 40px}
+.list{list-style:none;padding:0;margin-top:16px}
+.list li{padding:8px 0 8px 24px;position:relative;font-size:15px;color:var(--slate)}
+.list li::before{content:"";position:absolute;left:0;top:14px;width:10px;height:10px;border-radius:50%;background:var(--mint)}
+.section{padding:18px 0 48px}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:24px}
+.step{background:#fff;border:1px solid var(--line);border-radius:14px;padding:24px}
+.step h3{font-size:18px;margin-bottom:8px}
+.step p{font-size:15px;color:var(--slate)}
+.price-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:24px}
+.price{background:#fff;border:1px solid var(--line);border-radius:14px;padding:28px}
+.price .tag{font-family:var(--mono);font-size:12.5px;color:var(--mint-dark);background:var(--mint-tint);padding:4px 10px;border-radius:6px;display:inline-block;margin-bottom:14px}
+.price h3{font-size:20px;margin-bottom:8px}
+.price .price-label{font-size:24px;font-weight:700;color:var(--pine);margin:12px 0}
+.price p{font-size:15px;color:var(--slate)}
+.faq details{background:#fff;border:1px solid var(--line);border-radius:12px;margin-top:12px;overflow:hidden}
+.faq summary{list-style:none;cursor:pointer;padding:18px 22px;font-weight:600;font-size:16px;display:flex;justify-content:space-between;align-items:center;gap:16px}
+.faq summary::-webkit-details-marker{display:none}
+.faq .antwoord{padding:0 22px 20px;color:var(--slate);font-size:15px;max-width:64ch}
+.cta{display:flex;align-items:center;justify-content:space-between;gap:32px;background:var(--pine);border-radius:20px;padding:40px 44px;flex-wrap:wrap;color:#EFFBF6;margin:24px 0 72px}
+.cta p{color:#B9DCD0;margin-top:8px}
+footer{background:var(--pine-deep);color:#8FCDBD;padding:44px 0}
+.foot{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.foot .brand{color:#EFFBF6}
+.foot .bmark{background:var(--mint);color:var(--pine-deep)}
+.foot-links{display:flex;gap:22px;font-size:14px}
+.foot-links a:hover{color:#EFFBF6}
+.foot-sub{display:flex;flex-wrap:wrap;gap:8px 24px;margin-top:22px;padding-top:18px;border-top:1px solid rgba(127,232,195,.14);font-size:13px;font-family:var(--mono);color:#8FCDBD}
+.nav-in{transition:none}
+.brand img{transition:transform .35s cubic-bezier(.22,1,.36,1)}
+@media (max-width:860px){.grid,.steps,.price-grid{grid-template-columns:1fr}}
+@media (max-width:760px){
+  .nav-links,.nav-cta{display:none}
+  .menu-btn{display:flex;margin-left:auto}
+  .mobiel-menu:not([hidden]){display:block}
+  .cta{padding:30px 24px}
+}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="index.html" aria-label="Byte Company — naar home">
+      <picture><source srcset="logo.webp" type="image/webp"><img src="logo.png" alt="Byte Company"></picture>
+    </a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="diensten.html">Diensten</a>
+      <a href="process-scan.html" aria-current="page">Process Scan</a>
+      <a href="over-ons.html">Over ons</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <a class="btn btn-mint nav-cta" href="contact.html">Plan een gesprek</a>
+    <button class="menu-btn" type="button" aria-label="Menu openen" aria-expanded="false" aria-controls="mobielmenu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mobiel-menu" id="mobielmenu" hidden>
+    <a href="index.html">Home</a>
+    <a href="diensten.html">Diensten</a>
+    <a href="process-scan.html">Process Scan</a>
+    <a href="over-ons.html">Over ons</a>
+    <a href="contact.html">Contact</a>
+    <a class="btn btn-mint" href="contact.html">Plan een gesprek</a>
+  </div>
+</nav>
+<header class="pagehead">
+  <div class="wrap">
+    <p class="kicker">process scan/</p>
+    <h1>Waar lekt tijd weg in jouw productieproces?</h1>
+    <p>Met de Process Scan brengen we in een halve of hele dag in kaart waar handwerk, dubbel werk en vertraging ontstaan — en welke verbeteringen het meeste opleveren.</p>
+    <div class="hero-cta">
+      <a class="btn btn-pine" href="contact.html">Plan een vrijblijvende intake</a>
+      <a class="btn btn-ghost" href="#prijs">Bekijk de prijzen</a>
+    </div>
+  </div>
+</header>
+<main class="wrap">
+  <section class="section">
+    <div class="grid">
+      <div class="card">
+        <h2>Herkenbare signalen</h2>
+        <ul class="list">
+          <li>Medewerkers typen gegevens handmatig over tussen systemen</li>
+          <li>Excel-rapportages worden elke week opnieuw samengesteld</li>
+          <li>Te zoeken naar tekeningen, documenten of orderinformatie</li>
+          <li>Onduidelijke overdrachten tussen kantoor en productie</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h2>Wat je ontvangt</h2>
+        <ul class="list">
+          <li>Een analyse van de belangrijkste knelpunten</li>
+          <li>Concrete kansen voor procesverbetering, automatisering en AI</li>
+          <li>Een prioriteitenlijst op basis van impact en haalbaarheid</li>
+          <li>Een beknopt verbeterplan waarmee je direct verder kunt</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <section class="section">
+    <h2>Hoe de scan werkt</h2>
+    <div class="steps">
+      <div class="step">
+        <h3>1. Korte intake</h3>
+        <p>We bepalen welk proces of knelpunt centraal staat en wat je wilt weten.</p>
+      </div>
+      <div class="step">
+        <h3>2. Meekijken en analyseren</h3>
+        <p>We volgen de werkwijze, spreken betrokken medewerkers en brengen verspilling en risico’s in kaart.</p>
+      </div>
+      <div class="step">
+        <h3>3. Praktisch verbeterplan</h3>
+        <p>Je ontvangt concrete verbeterkansen, prioriteiten en een indicatie van investering en opbrengst.</p>
+      </div>
+    </div>
+  </section>
+  <section class="section" id="prijs">
+    <h2>Prijzen en varianten</h2>
+    <div class="price-grid">
+      <div class="price">
+        <span class="tag">halve dag</span>
+        <h3>Één duidelijk proces of een afgebakend knelpunt</h3>
+        <p class="price-label">Vanaf €595 excl. btw</p>
+        <p>Intake, analyse op locatie en een beknopt verbeterplan.</p>
+      </div>
+      <div class="price">
+        <span class="tag">hele dag</span>
+        <h3>Meerdere processtappen of afdelingen</h3>
+        <p class="price-label">Vanaf €995 excl. btw</p>
+        <p>Uitgebreidere analyse, gesprekken, prioriteiten en een concreet verbeterplan.</p>
+      </div>
+    </div>
+    <p style="margin-top:16px;color:var(--slate);font-size:15px;">Dit zijn tijdelijke introductieprijzen. De prijzen kunnen later worden aangepast.</p>
+  </section>
+  <section class="section">
+    <div class="panel">
+      <h2>Voor wie is de scan bedoeld?</h2>
+      <p>Voor productiebedrijven die meer grip willen op hun processen, maar nog niet precies weten waar automatisering de meeste waarde oplevert. De scan is vooral geschikt voor bedrijfsleiders, productiemanagers, werkvoorbereiders en ondernemers in de maakindustrie.</p>
+    </div>
+  </section>
+  <section class="section faq">
+    <h2>Veelgestelde vragen</h2>
+    <details>
+      <summary>Moet ik vooraf processen documenteren?</summary>
+      <p class="antwoord">Nee. We werken vanuit wat je daadwerkelijk doet, op de werkvloer of in de praktijk. Dat levert vaak sneller bruikbare inzichten op.</p>
+    </details>
+    <details>
+      <summary>Kan de scan op locatie plaatsvinden?</summary>
+      <p class="antwoord">Ja. We voeren de scan graag op locatie uit, zodat we de situatie in de praktijk goed kunnen bekijken.</p>
+    </details>
+    <details>
+      <summary>Zit ik na de scan vast aan een vervolgtraject?</summary>
+      <p class="antwoord">Nee. De Process Scan is een zelfstandig adviesproduct. Je zit daarna nergens aan vast.</p>
+    </details>
+  </section>
+  <section class="cta">
+    <div>
+      <h2>Wil je weten waar je met relatief weinig inspanning de meeste tijd kunt besparen?</h2>
+      <p>Plan een korte, vrijblijvende intake. Je ontvangt binnen één werkdag een reactie.</p>
+    </div>
+    <a class="btn btn-mint" href="contact.html">Bespreek mijn Process Scan</a>
+  </section>
+</main>
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <a class="brand" href="index.html"><span class="bmark">B</span> Byte Company</a>
+      <div class="foot-links">
+        <a href="index.html">Home</a>
+        <a href="diensten.html">Diensten</a>
+        <a href="process-scan.html">Process Scan</a>
+        <a href="over-ons.html">Over ons</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+    <div class="foot-sub">
+      <a href="tel:+31627249877">+31 6 27 24 98 77</a>
+      <span>Noord-Brabant, NL</span>
+      <span>KvK 89199073</span>
+      <a href="voorwaarden.html">Algemene voorwaarden</a>
+      <span>© 2026 Byte Company</span>
+    </div>
+  </div>
+</footer>
+<script>
+(function(){
+  var mb = document.querySelector('.menu-btn');
+  var mm = document.getElementById('mobielmenu');
+  if (!mb || !mm) return;
+  mb.addEventListener('click', function(){
+    var open = mb.getAttribute('aria-expanded') === 'true';
+    mb.setAttribute('aria-expanded', String(!open));
+    mb.setAttribute('aria-label', open ? 'Menu openen' : 'Menu sluiten');
+    mm.hidden = open;
+  });
+})();
+</script>
+</body>
+</html>

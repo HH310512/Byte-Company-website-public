@@ -37,17 +37,18 @@
   --mono:ui-monospace,"SF Mono","Cascadia Code",Consolas,"Liberation Mono",Menlo,monospace;
 }
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:var(--sans);background:var(--mist);color:var(--ink);line-height:1.65;font-size:16px}
+html{overflow-y:scroll}
+body{font-family:var(--sans);background:var(--mist);color:var(--ink);line-height:1.65;font-size:16px;padding-top:72px}
 a{color:inherit;text-decoration:none}
 :focus-visible{outline:2px solid var(--mint-dark);outline-offset:3px;border-radius:4px}
 .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
 
-.nav{position:sticky;top:0;z-index:50;background:rgba(244,247,246,.88);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
-.nav-in{display:flex;align-items:center;gap:28px;height:66px}
+.nav{position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(244,247,246,.88);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav-in{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:20px;height:72px}
 .brand{display:flex;align-items:center;gap:10px;font-weight:650;letter-spacing:-.01em}
 .bmark{width:30px;height:30px;border-radius:8px;background:var(--pine);color:var(--mint);display:grid;place-items:center;font-family:var(--mono);font-size:15px;font-weight:700}
-.nav-links{display:flex;gap:26px;margin-left:auto}
-.nav-links a{font-size:14.5px;color:var(--slate);transition:color .15s}
+.nav-links{display:grid;grid-template-columns:repeat(5,max-content);justify-content:center;align-items:center;gap:40px;margin-left:auto}
+.nav-links a{font-size:14.5px;color:var(--slate);transition:color .15s;position:relative;display:inline-flex;align-items:center;justify-content:center;white-space:nowrap;flex-shrink:0;font-weight:600;width:100%;min-width:0;height:34px;padding:0}
 .nav-links a:hover{color:var(--ink)}
 .nav-links a[aria-current="page"]{color:var(--ink);font-weight:600}
 .btn{display:inline-flex;align-items:center;gap:8px;border-radius:9px;font-weight:600;font-size:15px;padding:11px 20px;border:1px solid transparent;cursor:pointer;transition:transform .12s,background .15s}
@@ -144,10 +145,10 @@ footer{background:var(--pine-deep);color:#8FCDBD;padding:44px 0}
 .pagehead p{animation-delay:.16s}
 
 /* --- modernisering: logo & animaties --- */
-.brand img{height:42px;width:auto;display:block;transition:transform .35s cubic-bezier(.22,1,.36,1)}
+.brand img{height:42px;width:160px;display:block;object-fit:contain;transition:transform .35s cubic-bezier(.22,1,.36,1)}
 .brand:hover img{transform:scale(1.045)}
 .nav-links a{position:relative}
-.nav-links a::after{content:"";position:absolute;left:0;bottom:-6px;height:2px;width:100%;background:var(--mint);border-radius:2px;transform:scaleX(0);transform-origin:left;transition:transform .28s cubic-bezier(.22,1,.36,1)}
+.nav-links a::after{content:"";position:absolute;left:6px;right:6px;bottom:-6px;height:2px;background:var(--mint);border-radius:2px;transform:scaleX(0);transform-origin:left;transition:transform .28s cubic-bezier(.22,1,.36,1)}
 .nav-links a:hover::after,.nav-links a[aria-current="page"]::after{transform:scaleX(1)}
 .btn{transition:transform .18s cubic-bezier(.22,1,.36,1),background .15s,border-color .15s,box-shadow .25s}
 .btn:hover{transform:translateY(-2px);box-shadow:0 10px 22px -10px rgba(14,59,54,.45)}
@@ -163,12 +164,9 @@ footer{background:var(--pine-deep);color:#8FCDBD;padding:44px 0}
   .hero .eyebrow,.hero h1,.hero .sub,.hero-cta,.hero-note,.console,.pagehead .kicker,.pagehead h1,.pagehead p{animation:none}
 }
 
-/* --- compacte nav bij scrollen --- */
-.nav-in{transition:height .35s cubic-bezier(.22,1,.36,1)}
-.brand img{transition:transform .35s cubic-bezier(.22,1,.36,1),height .35s cubic-bezier(.22,1,.36,1)}
-.nav.compact .nav-in{height:52px}
-.nav.compact .brand img{height:32px}
-.nav.compact{box-shadow:0 6px 20px -14px rgba(14,59,54,.3)}
+/* --- header stabiliteit --- */
+.nav-in{transition:none}
+.brand img{transition:transform .35s cubic-bezier(.22,1,.36,1)}
 /* --- tweakbare positie witte boxen --- */
 .story-kop{display:flex;flex-direction:column;align-items:flex-start;align-self:stretch}
 .story-kop h2{position:static;margin:auto auto auto 56px;padding:24px 0;line-height:1.25}
@@ -206,6 +204,7 @@ footer{background:var(--pine-deep);color:#8FCDBD;padding:44px 0}
     <div class="nav-links">
       <a href="index.html">Home</a>
       <a href="diensten.html">Diensten</a>
+      <a href="process-scan.html">Process Scan</a>
       <a href="over-ons.html" aria-current="page">Over ons</a>
       <a href="contact.html">Contact</a>
     </div>
@@ -217,6 +216,7 @@ footer{background:var(--pine-deep);color:#8FCDBD;padding:44px 0}
   <div class="mobiel-menu" id="mobielmenu" hidden>
     <a href="index.html">Home</a>
     <a href="diensten.html">Diensten</a>
+    <a href="process-scan.html">Process Scan</a>
     <a href="over-ons.html">Over ons</a>
     <a href="contact.html">Contact</a>
     <a class="btn btn-mint" href="contact.html">Plan een gesprek</a>
@@ -227,7 +227,7 @@ footer{background:var(--pine-deep);color:#8FCDBD;padding:44px 0}
   <div class="wrap">
     <p class="kicker">over/</p>
     <h1>Het verhaal achter Byte Company</h1>
-    <p>Ruim 25 jaar op de werkvloer van de hightech maakindustrie. Daaruit is Byte Company ontstaan: automatisering en dashboards voor maakbedrijven, en daarnaast apps en websites.</p>
+    <p>Byte Company combineert softwarekennis met ruim 25 jaar praktijkervaring in technische productieomgevingen. Van CAD/CAM, CNC-productie en werkvoorbereiding tot ERP/PLM, kwaliteitsborging, technische data en 3D-printproductie.</p>
   </div>
 </header>
 
@@ -242,8 +242,8 @@ footer{background:var(--pine-deep);color:#8FCDBD;padding:44px 0}
       <div class="story-body">
       <p>Byte Company komt niet uit een kantoorpand vol programmeurs, maar van de werkvloer van de hightech maakindustrie. Daar werken we al ruim 25 jaar, dagelijks in CAD/CAM-omgevingen — de software waarmee machines worden aangestuurd die geen fouten mogen maken. In die wereld is precisie geen luxe, maar de norm.</p>
       <p>Daarnaast runnen we een eigen 3D-printbedrijf voor prototypes en series. Ook daar geldt dezelfde aanpak: <strong>eerst goed nadenken, dan pas bouwen, en alles controleerbaar houden.</strong> We staan er dus nog dagelijks zelf tussen: in de CNC-programmering én in onze eigen printstudio.</p>
-      <p>En steeds vaker automatiseren we ons eigen werk. Facturen, planningen, rapportages — wat elke week terugkomt, laten we door software doen. Een klant zag dat en vroeg of we zoiets ook voor hem konden bouwen. Zo is Byte Company ontstaan.</p>
-      <p>Vandaag bouwen we onder deze naam automatiseringen en dashboards — vooral voor maakbedrijven — en daarnaast apps en websites. Altijd met dezelfde mentaliteit als in de maakindustrie: <strong>strak, overzichtelijk en zonder poespas.</strong> En bewust klein — je schakelt altijd direct met de persoon die het werk doet.</p>
+      <p>En steeds vaker automatiseren we ons eigen werk. Facturen, planningen, rapportages — wat steeds terugkomt, laten we door software doen. Een klant zag dat en vroeg of we zoiets ook voor hem konden bouwen. Zo is Byte Company ontstaan.</p>
+      <p>Vandaag bouwen we onder deze naam automatiseringen en dashboards — vooral voor maakbedrijven — en daarnaast apps en websites. We begrijpen niet alleen wat technisch mogelijk is, maar ook wat een oplossing betekent voor de werkvloer, de werkvoorbereiding, de informatieoverdracht en de dagelijkse productie.</p>
     </div>
     </article>
   </div>
@@ -317,6 +317,7 @@ footer{background:var(--pine-deep);color:#8FCDBD;padding:44px 0}
       <div class="foot-links">
         <a href="index.html">Home</a>
         <a href="diensten.html">Diensten</a>
+        <a href="process-scan.html">Process Scan</a>
         <a href="over-ons.html">Over ons</a>
         <a href="contact.html">Contact</a>
       </div>
@@ -384,19 +385,6 @@ footer{background:var(--pine-deep);color:#8FCDBD;padding:44px 0}
 })();
 </script>
 
-<script>
-(function(){
-  var nav = document.querySelector(".nav");
-  if (!nav) return;
-  var on = false;
-  function upd(){
-    var s = window.scrollY > 40;
-    if (s !== on) { on = s; nav.classList.toggle("compact", s); }
-  }
-  window.addEventListener("scroll", upd, { passive: true });
-  upd();
-})();
-</script>
 
 </body>
 </html>
