@@ -77,6 +77,12 @@ h1{font-size:clamp(32px,4vw,46px);line-height:1.1;letter-spacing:-.025em;font-we
 .badge .dot{width:8px;height:8px;border-radius:50%;background:var(--mint);animation:pulse 2.2s ease-in-out infinite}
 @keyframes pulse{50%{box-shadow:0 0 0 5px rgba(127,232,195,.25)}}
 .info-note{margin-top:18px;font-size:14px;color:var(--slate)}
+.direct-actions{display:grid;grid-template-columns:1fr;gap:10px;margin-top:16px}
+.direct-action{display:inline-flex;align-items:center;justify-content:center;gap:9px;min-height:44px;border:1px solid #C7D2CE;border-radius:9px;padding:10px 14px;color:var(--pine);font-size:14px;font-weight:700;text-align:center}
+.direct-action:hover{border-color:var(--pine);background:var(--mist)}
+.direct-action.whatsapp{background:var(--mint);border-color:var(--mint);color:var(--pine-deep)}
+.direct-action.whatsapp:hover{background:#8FF0CE}
+.direct-action svg{width:20px;height:20px;flex:0 0 auto;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
 
 .form-card{scroll-margin-top:88px}
 .form-card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:36px}
@@ -96,6 +102,8 @@ h1{font-size:clamp(32px,4vw,46px);line-height:1.1;letter-spacing:-.025em;font-we
 .form-status.err{background:#FBEAEA;color:#8A3B3B}
 .form-hint a{color:var(--mint-dark);font-weight:600}
 .form-hint a:hover{text-decoration:underline}
+.form-privacy{margin-top:12px;font-size:12.5px;color:var(--slate);text-align:center;line-height:1.5}
+.form-privacy a{color:var(--mint-dark);font-weight:600;text-decoration:underline;text-underline-offset:2px}
 
 footer{background:var(--pine-deep);color:#8FCDBD;padding:44px 0}
 .foot{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
@@ -166,6 +174,7 @@ footer{background:var(--pine-deep);color:#8FCDBD;padding:44px 0}
 :root{--boxen-lift:44px}
 .contact-grid{margin-top:calc(-1 * var(--boxen-lift))}
 </style>
+<link rel="stylesheet" href="privacy-cookies.css">
 </head>
 <body>
 
@@ -229,7 +238,14 @@ footer{background:var(--pine-deep);color:#8FCDBD;padding:44px 0}
       </div>
     </div>
     <span class="badge"><span class="dot" aria-hidden="true"></span> Reactie binnen één werkdag</span>
-    <p class="info-note">Liever direct schakelen? Bel of stuur gerust een WhatsApp-bericht.</p>
+    <p class="info-note">Liever direct schakelen? Bel ons of stuur een WhatsApp-bericht. Je ontvangt binnen één werkdag een persoonlijke reactie.</p>
+    <div class="direct-actions">
+      <a class="direct-action" href="tel:+31627249877">Bel direct</a>
+      <a class="direct-action whatsapp" href="https://wa.me/31627249877" target="_blank" rel="noopener noreferrer">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11.6a8 8 0 0 1-11.8 7L4 20l1.4-4.1A8 8 0 1 1 20 11.6Z"/><path d="M8.6 7.7c.3-.3.7-.2.9.1l1 2c.1.3.1.5-.1.7l-.7.8c.8 1.6 2 2.8 3.7 3.6l.7-.8c.2-.2.5-.3.7-.1l2 1c.3.2.4.6.2.9-.6.9-1.6 1.4-2.7 1.2-4-.7-7.1-3.8-7.8-7.8-.2-.7.1-1.2.5-1.6Z"/></svg>
+        <span>Stuur een WhatsApp-bericht</span>
+      </a>
+    </div>
   </aside>
 
   <section class="form-card reveal" id="formulier">
@@ -263,7 +279,8 @@ footer{background:var(--pine-deep);color:#8FCDBD;padding:44px 0}
       </div>
       <button class="btn btn-pine" type="submit">Verstuur bericht</button>
       <p class="form-status" id="formstatus" role="status" hidden></p>
-      <p class="form-hint">Liever direct contact? Bel of app naar <a href="tel:+31627249877">+31 6 27 24 98 77</a></p>
+      <p class="form-hint">Liever direct contact? <a href="tel:+31627249877">Bel +31 6 27 24 98 77</a> of <a href="https://wa.me/31627249877" target="_blank" rel="noopener noreferrer">stuur een WhatsApp-bericht</a>.</p>
+      <p class="form-privacy">We gebruiken je gegevens alleen om op je aanvraag te reageren. Lees in onze <a href="privacy.html">privacyverklaring</a> hoe Byte Company met persoonsgegevens omgaat.</p>
     </form>
   </section>
 
@@ -286,6 +303,8 @@ footer{background:var(--pine-deep);color:#8FCDBD;padding:44px 0}
       <span>Noord-Brabant, NL</span>
       <span>KvK 89199073</span>
       <a href="voorwaarden.html">Algemene voorwaarden</a>
+      <a href="privacy.html">Privacyverklaring</a>
+      <button class="cookie-settings-link" type="button" data-cookie-settings>Cookie-instellingen</button>
       <span>© 2026 Byte Company</span>
     </div>
   </div>
@@ -302,6 +321,7 @@ document.getElementById("contactform").addEventListener("submit", function(e){
   var f = e.target;
   if (!f.reportValidity()) return;
   var status = document.getElementById("formstatus");
+  var submit = f.querySelector('button[type="submit"]');
   function toon(msg, ok){
     status.textContent = msg;
     status.className = "form-status " + (ok ? "ok" : "err");
@@ -311,6 +331,8 @@ document.getElementById("contactform").addEventListener("submit", function(e){
     toon("Het formulier is nog niet gekoppeld aan een verzenddienst. Bel of app ons op +31 6 27 24 98 77.", false);
     return;
   }
+  submit.disabled = true;
+  submit.textContent = "Bezig met versturen…";
   fetch(FORM_ENDPOINT, {
     method: "POST",
     headers: { "Content-Type": "application/json", "Accept": "application/json" },
@@ -326,6 +348,9 @@ document.getElementById("contactform").addEventListener("submit", function(e){
     f.reset();
   }).catch(function(){
     toon("Versturen is niet gelukt. Bel of app ons op +31 6 27 24 98 77.", false);
+  }).finally(function(){
+    submit.disabled = false;
+    submit.textContent = "Verstuur bericht";
   });
 });
 </script>
@@ -365,5 +390,6 @@ document.getElementById("contactform").addEventListener("submit", function(e){
 </script>
 
 
+<script src="privacy-cookies.js"></script>
 </body>
 </html>

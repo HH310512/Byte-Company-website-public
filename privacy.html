@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacyverklaring | Byte Company</title>
+<meta name="description" content="Lees hoe Byte Company omgaat met persoonsgegevens, het contactformulier, cookies en externe dienstverleners.">
+<link rel="canonical" href="https://bytecompany.nl/privacy.html">
+<style>
+:root{
+  --pine:#0E3B36;--pine-deep:#0A2E29;--mint:#7FE8C3;--mint-tint:#DDF7EC;
+  --mint-dark:#14574C;--ink:#131A18;--mist:#F4F7F6;--slate:#5E6E69;--line:#E1E8E5;
+  --sans:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --mono:ui-monospace,"SF Mono","Cascadia Code",Consolas,"Liberation Mono",Menlo,monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;overflow-y:scroll}
+body{font-family:var(--sans);background:var(--mist);color:var(--ink);line-height:1.65;font-size:16px;padding-top:72px}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:2px solid var(--mint-dark);outline-offset:3px;border-radius:4px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+.nav{position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(244,247,246,.88);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav-in{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:20px;height:72px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:650;letter-spacing:-.01em;flex-shrink:0}
+.brand img{height:42px;width:160px;display:block;object-fit:contain}
+.bmark{width:30px;height:30px;border-radius:8px;background:var(--pine);color:var(--mint);display:grid;place-items:center;font-family:var(--mono);font-size:15px;font-weight:700}
+.nav-links{display:grid;grid-template-columns:repeat(5,max-content);justify-content:center;align-items:center;gap:40px;margin-left:auto}
+.nav-links a{font-size:14.5px;color:var(--slate);display:inline-flex;align-items:center;justify-content:center;white-space:nowrap;font-weight:600;height:34px;position:relative}
+.nav-links a:hover{color:var(--ink)}
+.nav-links a::after{content:"";position:absolute;left:6px;right:6px;bottom:-6px;height:2px;background:var(--mint);border-radius:2px;transform:scaleX(0);transform-origin:left;transition:transform .28s cubic-bezier(.22,1,.36,1)}
+.nav-links a:hover::after{transform:scaleX(1)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:9px;font-weight:600;font-size:15px;padding:12px 20px;border:1px solid transparent;cursor:pointer}
+.btn-mint{background:var(--mint);color:var(--pine-deep)}
+.nav .btn{padding:9px 16px;font-size:14px}
+.menu-btn{display:none;flex-direction:column;justify-content:center;align-items:stretch;gap:5px;width:44px;height:42px;background:transparent;border:1px solid var(--line);border-radius:9px;cursor:pointer;padding:0 11px}
+.menu-btn span{display:block;height:2px;background:var(--ink);border-radius:2px}
+.menu-btn[aria-expanded="true"] span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.menu-btn[aria-expanded="true"] span:nth-child(2){opacity:0}
+.menu-btn[aria-expanded="true"] span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.mobiel-menu{display:none;border-top:1px solid var(--line);background:rgba(244,247,246,.98);padding:10px 24px 20px}
+.mobiel-menu a{display:block;padding:13px 4px;font-size:16px;color:var(--ink);border-bottom:1px solid var(--line)}
+.mobiel-menu a.btn{border-bottom:none;margin-top:14px;text-align:center;padding:12px 20px}
+.pagehead{padding:64px 0 42px}
+.kicker{font-family:var(--mono);font-size:13px;letter-spacing:.08em;color:var(--mint-dark);margin-bottom:12px}
+h1{font-size:clamp(32px,4vw,46px);line-height:1.1;letter-spacing:-.025em}
+.pagehead p{margin-top:16px;font-size:17px;color:var(--slate);max-width:62ch}
+.versie{display:inline-block;margin-top:18px;font-family:var(--mono);font-size:12.5px;color:var(--mint-dark);background:var(--mint-tint);padding:5px 10px;border-radius:6px}
+.privacy-grid{display:grid;grid-template-columns:230px minmax(0,1fr);gap:34px;align-items:start;padding-bottom:88px}
+.inhoud{position:sticky;top:96px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:22px}
+.inhoud h2{font-family:var(--mono);font-size:12px;letter-spacing:.06em;color:var(--slate);margin-bottom:10px}
+.inhoud ol{list-style:none}
+.inhoud a{display:block;padding:6px 0;font-size:13.5px;color:var(--slate)}
+.inhoud a:hover{color:var(--mint-dark)}
+.artikelen{background:#fff;border:1px solid var(--line);border-radius:16px;padding:40px}
+article{scroll-margin-top:96px;padding-bottom:28px;margin-bottom:28px;border-bottom:1px solid var(--line)}
+article:last-of-type{margin-bottom:0}
+article h2{font-size:22px;letter-spacing:-.015em;margin-bottom:12px}
+article p{font-size:15.5px;color:var(--slate);margin-bottom:12px;max-width:72ch}
+article ul{list-style:none;margin:8px 0 12px}
+article li{position:relative;padding:5px 0 5px 24px;font-size:15.5px;color:var(--slate)}
+article li::before{content:"";position:absolute;left:3px;top:15px;width:7px;height:7px;border-radius:50%;background:var(--mint)}
+article a{color:var(--mint-dark);font-weight:600;text-decoration:underline;text-underline-offset:3px}
+.privacy-note{background:var(--mint-tint);border-left:3px solid var(--mint);border-radius:8px;padding:14px 16px}
+.privacy-note p{margin:0;color:var(--mint-dark)}
+footer{background:var(--pine-deep);color:#8FCDBD;padding:44px 0}
+.foot{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.foot .brand{color:#EFFBF6}.foot .bmark{background:var(--mint);color:var(--pine-deep)}
+.foot-links{display:flex;gap:22px;font-size:14px;flex-wrap:wrap}.foot-links a:hover{color:#EFFBF6}
+.foot-sub{display:flex;flex-wrap:wrap;gap:8px 24px;margin-top:22px;padding-top:18px;border-top:1px solid rgba(127,232,195,.14);font-size:13px;font-family:var(--mono);color:#8FCDBD}
+.foot-sub a:hover{color:#EFFBF6}
+@media(max-width:860px){.privacy-grid{grid-template-columns:1fr}.inhoud{position:static}.artikelen{padding:28px}}
+@media(max-width:760px){.nav-links,.nav-cta{display:none}.menu-btn{display:flex;margin-left:auto}.mobiel-menu:not([hidden]){display:block}}
+@media(max-width:640px){.pagehead{padding:48px 0 32px}.artikelen{padding:24px 20px}}
+</style>
+<link rel="stylesheet" href="privacy-cookies.css">
+</head>
+<body>
+<nav class="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="index.html" aria-label="Byte Company — naar home"><img src="logo.png" alt="Byte Company"></a>
+    <div class="nav-links">
+      <a href="index.html">Home</a><a href="diensten.html">Diensten</a><a href="process-scan.html">Process Scan</a><a href="over-ons.html">Over ons</a><a href="contact.html">Contact</a>
+    </div>
+    <a class="btn btn-mint nav-cta" href="contact.html">Plan een gesprek</a>
+    <button class="menu-btn" type="button" aria-label="Menu openen" aria-expanded="false" aria-controls="mobielmenu"><span></span><span></span><span></span></button>
+  </div>
+  <div class="mobiel-menu" id="mobielmenu" hidden>
+    <a href="index.html">Home</a><a href="diensten.html">Diensten</a><a href="process-scan.html">Process Scan</a><a href="over-ons.html">Over ons</a><a href="contact.html">Contact</a><a class="btn btn-mint" href="contact.html">Plan een gesprek</a>
+  </div>
+</nav>
+
+<header class="pagehead">
+  <div class="wrap">
+    <p class="kicker">privacy/</p>
+    <h1>Privacyverklaring</h1>
+    <p>Hier lees je welke persoonsgegevens Byte Company verwerkt, waarom dat gebeurt en welke keuzes en rechten je hebt.</p>
+    <span class="versie">laatst bijgewerkt: 11 augustus 2026</span>
+  </div>
+</header>
+
+<main class="wrap privacy-grid">
+  <aside class="inhoud" aria-label="Inhoud privacyverklaring">
+    <h2>inhoud</h2>
+    <ol>
+      <li><a href="#verantwoordelijke">Wie verantwoordelijk is</a></li>
+      <li><a href="#gegevens">Welke gegevens</a></li>
+      <li><a href="#doelen">Waarom we ze gebruiken</a></li>
+      <li><a href="#bewaren">Hoe lang we bewaren</a></li>
+      <li><a href="#partijen">Externe partijen</a></li>
+      <li><a href="#cookies">Cookies en opslag</a></li>
+      <li><a href="#rechten">Jouw rechten</a></li>
+      <li><a href="#beveiliging">Beveiliging</a></li>
+    </ol>
+  </aside>
+
+  <div class="artikelen">
+    <article id="verantwoordelijke">
+      <h2>1. Wie is verantwoordelijk?</h2>
+      <p>Byte Company is verantwoordelijk voor de verwerking van persoonsgegevens via deze website. Byte Company is een eenmanszaak in Noord-Brabant, ingeschreven bij de Kamer van Koophandel onder nummer 89199073.</p>
+      <p>Heb je een privacyvraag? Gebruik dan het <a href="contact.html#formulier">contactformulier</a> of bel naar <a href="tel:+31627249877">+31 6 27 24 98 77</a>.</p>
+    </article>
+
+    <article id="gegevens">
+      <h2>2. Welke gegevens verwerken we?</h2>
+      <p>Als je het contactformulier gebruikt, ontvangen we je naam, e-mailadres, gekozen onderwerp en de inhoud van je bericht. Als je belt of WhatsApp gebruikt, verwerken we de contactgegevens en informatie die je zelf tijdens dat contact deelt.</p>
+      <p>De hostingpartij kan daarnaast technische gegevens, zoals een IP-adres, verwerken om de website veilig en beschikbaar te houden.</p>
+    </article>
+
+    <article id="doelen">
+      <h2>3. Waarom gebruiken we deze gegevens?</h2>
+      <ul>
+        <li>om je vraag of aanvraag te beantwoorden;</li>
+        <li>om een kennismaking, Process Scan of opdracht voor te bereiden;</li>
+        <li>om contact te onderhouden tijdens een opdracht;</li>
+        <li>om te voldoen aan wettelijke en administratieve verplichtingen.</li>
+      </ul>
+      <p>We gebruiken je gegevens omdat dit nodig is om op jouw verzoek te reageren, om afspraken uit te voeren, om aan wettelijke verplichtingen te voldoen of omdat Byte Company een gerechtvaardigd belang heeft bij zorgvuldig klantcontact. We gebruiken contactgegevens niet voor ongevraagde marketing.</p>
+    </article>
+
+    <article id="bewaren">
+      <h2>4. Hoe lang bewaren we gegevens?</h2>
+      <p>Een losse aanvraag die niet tot een opdracht leidt, bewaren we niet langer dan nodig en uiterlijk twaalf maanden na het laatste inhoudelijke contact. Gegevens die onderdeel worden van een klant- of financiële administratie bewaren we zolang de samenwerking loopt en daarna volgens de wettelijke bewaartermijn. Voor de fiscale basisadministratie is dat doorgaans zeven jaar.</p>
+      <p>Formspree kan inzendingen tijdelijk in het bijbehorende account bewaren. Byte Company verwijdert ook daar gegevens wanneer ze niet meer nodig zijn en houdt daarbij bovenstaande termijnen aan.</p>
+    </article>
+
+    <article id="partijen">
+      <h2>5. Welke externe partijen zijn betrokken?</h2>
+      <p>De website wordt gehost via <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener noreferrer">GitHub Pages</a>. GitHub kan technische loggegevens, waaronder IP-adressen, verwerken voor beveiliging en beschikbaarheid.</p>
+      <p>Het contactformulier gebruikt <a href="https://formspree.io/legal/privacy-policy/" target="_blank" rel="noopener noreferrer">Formspree</a> om formuliergegevens te ontvangen en door te sturen. Formspree verwerkt daarbij de ingevulde gegevens en technische informatie die nodig is om misbruik te voorkomen en de dienst te beveiligen.</p>
+      <p>Kies je zelf voor contact via WhatsApp, dan verlaat je de website en gelden ook de privacyvoorwaarden van WhatsApp/Meta. Er worden vanuit bytecompany.nl geen WhatsApp-gegevens geladen voordat je die link opent.</p>
+      <div class="privacy-note"><p>GitHub en Formspree zijn Amerikaanse dienstverleners. Daardoor kunnen persoonsgegevens buiten de Europese Economische Ruimte, waaronder in de Verenigde Staten, worden verwerkt. Deze partijen geven aan daarvoor passende juridische en technische waarborgen te gebruiken.</p></div>
+    </article>
+
+    <article id="cookies">
+      <h2>6. Cookies, statistieken en marketing</h2>
+      <p>Bytecompany.nl gebruikt momenteel geen analysetools, advertentiepixels of marketingcookies. De site bewaart alleen je cookievoorkeur lokaal in je browser, zodat het keuzepaneel niet bij ieder bezoek opnieuw verschijnt. Deze opslag bevat geen naam, e-mailadres of ander direct identificerend gegeven.</p>
+      <p>Je kunt je keuze altijd bekijken, wijzigen of intrekken via <button class="cookie-settings-link" type="button" data-cookie-settings>Cookie-instellingen</button>. Als later statistiek- of marketingtechnologie wordt toegevoegd, wordt die pas na jouw toestemming geactiveerd.</p>
+    </article>
+
+    <article id="rechten">
+      <h2>7. Welke rechten heb je?</h2>
+      <p>Je kunt vragen om inzage, correctie, verwijdering, beperking of overdracht van je persoonsgegevens. Je kunt ook bezwaar maken tegen een verwerking of eerder gegeven toestemming intrekken. Neem hiervoor contact op via het formulier of telefoonnummer hierboven. We kunnen om aanvullende informatie vragen om je identiteit te controleren.</p>
+      <p>Ben je niet tevreden over hoe we met je gegevens omgaan, dan kun je een klacht indienen bij de <a href="https://www.autoriteitpersoonsgegevens.nl/" target="_blank" rel="noopener noreferrer">Autoriteit Persoonsgegevens</a>.</p>
+    </article>
+
+    <article id="beveiliging">
+      <h2>8. Hoe beveiligen we persoonsgegevens?</h2>
+      <p>We beperken de verzameling tot wat nodig is, beveiligen de website en gegevensoverdracht met HTTPS, beperken de toegang tot ontvangen berichten en houden gebruikte systemen zo goed mogelijk actueel. Geen enkele methode is volledig zonder risico. Als er toch iets misgaat, handelen we volgens de geldende regels voor beveiligingsincidenten en datalekken.</p>
+      <p>Deze privacyverklaring kan veranderen als de website of gebruikte diensten wijzigen. De datum bovenaan laat zien wanneer de tekst voor het laatst is bijgewerkt.</p>
+    </article>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <a class="brand" href="index.html"><span class="bmark">B</span> Byte Company</a>
+      <div class="foot-links"><a href="index.html">Home</a><a href="diensten.html">Diensten</a><a href="process-scan.html">Process Scan</a><a href="over-ons.html">Over ons</a><a href="contact.html">Contact</a></div>
+    </div>
+    <div class="foot-sub">
+      <a href="tel:+31627249877">+31 6 27 24 98 77</a><span>Noord-Brabant, NL</span><span>KvK 89199073</span><a href="voorwaarden.html">Algemene voorwaarden</a><a href="privacy.html" aria-current="page">Privacyverklaring</a><button class="cookie-settings-link" type="button" data-cookie-settings>Cookie-instellingen</button><span>© 2026 Byte Company</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var mb=document.querySelector(".menu-btn"),mm=document.getElementById("mobielmenu");
+  if(!mb||!mm)return;
+  mb.addEventListener("click",function(){var open=mb.getAttribute("aria-expanded")==="true";mb.setAttribute("aria-expanded",String(!open));mb.setAttribute("aria-label",open?"Menu openen":"Menu sluiten");mm.hidden=open;});
+})();
+</script>
+<script src="privacy-cookies.js"></script>
+</body>
+</html>
