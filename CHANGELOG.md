@@ -7,6 +7,8 @@
 - Added glow-only script for all subpages and fixed scrolling/client-coordinate bugs so the glow stays under the pointer.
 - Removed temporary `cursor-glow.js` and consolidated behavior.
 
+- Applied shared cursor glow to additional pages (consistent with homepage bottom section).
+
 
 ---
 
